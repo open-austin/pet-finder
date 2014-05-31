@@ -1,4 +1,6 @@
 class PetPopulatorController < ApplicationController
+  before_filter :verified_request?
+
   def update
   	pets = pets_params[:pets].map {|pet_hash| Pet.from_hash(pet_hash)}
   	pets_to_save = pets.select {|pet| Pet.where(pet_id: pet.pet_id).empty?}
