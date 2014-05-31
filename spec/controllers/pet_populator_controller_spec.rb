@@ -39,10 +39,14 @@ describe PetPopulatorController do
 			Pet.create(pet_id: '1234')
 			Pet.create(pet_id: '2345')
 			Pet.create(pet_id: '3456')
+			post :reconcile, { pet_ids: [ '1234', '3456' ] }
+		end
+
+		it "will leave the sent ids active" do
+			Pet.where(pet_id: [ '1234', '3456' ]).each {|pet| pet.should be_active }
 		end
 		
 		it "will mark missing ids as inactive" do
-			post :reconcile, { ids: [ '1234', '3456' ] }
 			Pet.where(pet_id: '2345').first.should_not be_active
 		end
 
