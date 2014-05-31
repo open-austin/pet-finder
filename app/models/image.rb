@@ -15,5 +15,4 @@ class Image < ActiveRecord::Base
 	def to_s
 		url
 	end
-
 end

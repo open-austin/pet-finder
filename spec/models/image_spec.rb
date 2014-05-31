@@ -25,5 +25,4 @@ describe Image do
 		end
 	
 	end
-
 end
