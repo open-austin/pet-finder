@@ -1,5 +1,7 @@
 class Image < ActiveRecord::Base
 
+	attr_accessible :path
+
 	BASE_URL   = 'http://www.petharbor.com/get_image.asp'
 	RESOLUTION = 'Detail'
 	LOCATION   = 'ASTIN'
