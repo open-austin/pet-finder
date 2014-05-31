@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531175644) do
+ActiveRecord::Schema.define(version: 20140531181707) do
 
   create_table "images", force: true do |t|
     t.string   "path"
@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 20140531175644) do
     t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color"
   end
 
   add_index "pets", ["breed"], name: "index_pets_on_breed"
+  add_index "pets", ["color"], name: "index_pets_on_color"
   add_index "pets", ["fixed"], name: "index_pets_on_fixed"
   add_index "pets", ["gender"], name: "index_pets_on_gender"
   add_index "pets", ["image_id"], name: "index_pets_on_image_id"
