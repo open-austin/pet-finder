@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20140531181317) do
 
+  create_table "images", force: true do |t|
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,6 +31,29 @@ ActiveRecord::Schema.define(version: 20140531181317) do
   add_index "notifications", ["type"], name: "index_notifications_on_type"
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
+  create_table "pets", force: true do |t|
+    t.string   "species"
+    t.string   "name"
+    t.string   "pet_id"
+    t.string   "gender"
+    t.boolean  "fixed"
+    t.string   "breed"
+    t.date     "found_on"
+    t.datetime "scraped_at"
+    t.integer  "shelter_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pets", ["breed"], name: "index_pets_on_breed"
+  add_index "pets", ["fixed"], name: "index_pets_on_fixed"
+  add_index "pets", ["gender"], name: "index_pets_on_gender"
+  add_index "pets", ["image_id"], name: "index_pets_on_image_id"
+  add_index "pets", ["pet_id"], name: "index_pets_on_pet_id"
+  add_index "pets", ["shelter_id"], name: "index_pets_on_shelter_id"
+  add_index "pets", ["species"], name: "index_pets_on_species"
+
   create_table "searches", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,6 +63,12 @@ ActiveRecord::Schema.define(version: 20140531181317) do
     t.string   "color"
     t.string   "breed"
     t.date     "found_on"
+  end
+
+  create_table "shelters", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

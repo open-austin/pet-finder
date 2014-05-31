@@ -4,4 +4,10 @@ class Notification < ActiveRecord::Base
 
 	attr_accessible :type
 
+	def send_email
+	end
+
+	def send_text
+	end
+
 end

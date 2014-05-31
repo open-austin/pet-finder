@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
   resources :notifications
   resources :searches
+  resources :users
 
   root :to => 'searches#index'
 end
