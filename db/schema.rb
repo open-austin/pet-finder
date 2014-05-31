@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531190249) do
+ActiveRecord::Schema.define(version: 20140531232928) do
 
   create_table "images", force: true do |t|
     t.string   "path"
@@ -22,13 +22,11 @@ ActiveRecord::Schema.define(version: 20140531190249) do
   create_table "notifications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.integer  "user_id"
     t.integer  "search_id"
   end
 
   add_index "notifications", ["search_id"], name: "index_notifications_on_search_id"
-  add_index "notifications", ["type"], name: "index_notifications_on_type"
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "pets", force: true do |t|

@@ -2,7 +2,12 @@ class Notification < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :search
 
-	attr_accessible :type
+	def send
+		send_email if user.email.present?
+		send_text if user.phone_number.present?
+	end
+
+	private
 
 	def send_welcome_email
 		NotificationMailer.welcome_email(user).deliver
