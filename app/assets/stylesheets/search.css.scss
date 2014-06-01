@@ -1,16 +1,18 @@
 .pet-icon {
-	display: inline-block;
-	width: 200px;
-	height: 200px;
+	min-height: 200px;
 }
 
 @mixin pet-logo($name) {
 	background: url(#{$name}.png);
 	background-size: contain;
+	background-repeat:no-repeat;
+	background-position: center center;
 
 	&.active {
 		background: url(#{$name}-active.png);
 		background-size: contain;
+		background-repeat:no-repeat;
+		background-position: center center;
 	}
 }
 
