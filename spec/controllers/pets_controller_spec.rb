@@ -24,4 +24,30 @@ describe PetsController do
 
 	end
 
+	describe "POST 'unsubscribe'" do 
+	
+		it "will delete the existing subscription by email" do
+			Subscription.create(email: 'test@email.com', phone: '123-456-7890')
+			post :unsubscribe, { email_or_phone: 'test@email.com' }
+			Subscription.all.should be_empty
+		end
+
+		it "will delete the existing subscription by phone" do
+			Subscription.create(email: 'test@email.com', phone: '123-456-7890')
+			post :unsubscribe, { email_or_phone: '123-456-7890' }
+			Subscription.all.should be_empty
+		end
+
+		it "will not delete non-matching subscriptions" do
+			Subscription.create(email: 'test1@email.com', phone: '123-456-7890')
+			Subscription.create(email: 'test2@email.com', phone: '123-456-7891')
+			Subscription.create(email: 'test3@email.com', phone: '123-456-7892')
+			post :unsubscribe, { email_or_phone: 'test@emaildifferent.com' }
+			Subscription.count.should eq 3
+			post :unsubscribe, { email_or_phone: '123-456-5432' }
+			Subscription.count.should eq 3
+		end
+	
+	end
+
 end

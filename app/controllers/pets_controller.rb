@@ -27,6 +27,13 @@ class PetsController < ApplicationController
     render json: { success: subscription.save }
   end
 
+  def unsubscribe
+    value = params[:email_or_phone]
+    Subscription.where(email: value).destroy_all
+    Subscription.where(phone: value).destroy_all
+    render json: { success: true }
+  end
+
   private
 
   def subscription_params
