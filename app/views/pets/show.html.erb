@@ -7,6 +7,7 @@
         <div class="caption">
             <h4><%= @pet.name %></h4>
               <p> <%= @pet.name %> is a <%= @pet.gender %> <%= @pet.species %> found on <%= @pet.found_on %></p>
+              <p> Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a> 
           </div>
         <img src= <%= @pet.image_url %>
         </div>
