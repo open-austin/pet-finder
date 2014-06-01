@@ -1,26 +1,27 @@
 class Notification < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :search
 
-	attr_accessible :type
+	Contact = Struct.new(:email, :phone)
+
+	attr_accessible :email, :phone, :species, :gender, :fixed, :found_since, :color
+
+	scope :maybe, ->(prop, value) { where(prop => [ value, nil ]) }
+
+	def contact
+		@contact ||= Contact.new(email, phone)
+	end
+
+	def should_email?
+		email.present?
+	end
+
+	def should_text?
+		phone.present?
+	end
+
+	private
 
 	def send_welcome_email
-		NotificationMailer.welcome_email(user).deliver
-	end
-
-	def send_notify_email
-		NotificationMailer.notify_email(user).deliver
-	end
-
-	def send_text
-		uri = URI.parse("https://api.plivo.com/v1/Account/#{ENV['PLIVO_AUTH_ID']}/Message/")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    request = Net::HTTP::Get.new(uri.request_uri)
-    request.basic_auth(ENV['PLIVO_AUTH_ID'],ENV['PLIVO_AUTH_TOKEN'])
-    
-		request.set_form_data({"src" => ENV['PLIVO_NUMBER'], "dst" => user.phone_number, "text" => "New Pet Found! (via PetFinder app)"})
-    response = http.request(request)
+		NotificationMailer.welcome_email(contact).deliver
 	end
 
 end
