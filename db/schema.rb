@@ -11,34 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601020840) do
+ActiveRecord::Schema.define(version: 20140601150304) do
 
   create_table "images", force: true do |t|
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "notifications", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "search_id"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "species"
-    t.string   "gender"
-    t.boolean  "fixed"
-    t.date     "found_since"
-    t.string   "color"
-  end
-
-  add_index "notifications", ["color"], name: "index_notifications_on_color"
-  add_index "notifications", ["fixed"], name: "index_notifications_on_fixed"
-  add_index "notifications", ["gender"], name: "index_notifications_on_gender"
-  add_index "notifications", ["search_id"], name: "index_notifications_on_search_id"
-  add_index "notifications", ["species"], name: "index_notifications_on_species"
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 
   create_table "pets", force: true do |t|
     t.string   "species"
@@ -71,5 +50,26 @@ ActiveRecord::Schema.define(version: 20140601020840) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subscriptions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "search_id"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "species"
+    t.string   "gender"
+    t.boolean  "fixed"
+    t.date     "found_since"
+    t.string   "color"
+  end
+
+  add_index "subscriptions", ["color"], name: "index_subscriptions_on_color"
+  add_index "subscriptions", ["fixed"], name: "index_subscriptions_on_fixed"
+  add_index "subscriptions", ["gender"], name: "index_subscriptions_on_gender"
+  add_index "subscriptions", ["search_id"], name: "index_subscriptions_on_search_id"
+  add_index "subscriptions", ["species"], name: "index_subscriptions_on_species"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
 end

@@ -32,7 +32,7 @@ describe PetPopulatorController do
 		end
 
 		it "will send out notifications for new pets" do
-			Notification.create(email: 'test@email.com', species: 'dog')
+			Subscription.create(email: 'test@email.com', species: 'dog')
 			post :update, pets_string
 			ActionMailer::Base.deliveries.count.should eq 1
 		end

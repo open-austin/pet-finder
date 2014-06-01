@@ -7,9 +7,9 @@ describe NotificationSender do
 	describe '::matching' do 
 
 		before do
-			@not1 = Notification.create(email: 'test1@email.com', species: 'dog', gender: 'male', color: "brown")
-			@not2 = Notification.create(email: 'test2@email.com', species: 'dog', gender: 'female', fixed: true)
-			@not3 = Notification.create(email: 'test3@email.com', species: 'cat', fixed: false, color: 'black')
+			@not1 = Subscription.create(email: 'test1@email.com', species: 'dog', gender: 'male', color: "brown")
+			@not2 = Subscription.create(email: 'test2@email.com', species: 'dog', gender: 'female', fixed: true)
+			@not3 = Subscription.create(email: 'test3@email.com', species: 'cat', fixed: false, color: 'black')
 		end
 
 		it "will send notifications to searches that positively match" do

@@ -22,7 +22,7 @@ class PetsController < ApplicationController
 
   # POST /pets/results/subscribe
   def subscribe
-    @notification = Notification.new
+    @notification = Subscription.new
     @gender = params[:gender]
     @species = params[:species]
     @found_since = params[:found_since]

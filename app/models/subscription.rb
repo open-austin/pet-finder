@@ -1,4 +1,4 @@
-class Notification < ActiveRecord::Base
+class Subscription < ActiveRecord::Base
 
 	Contact = Struct.new(:email, :phone)
 
