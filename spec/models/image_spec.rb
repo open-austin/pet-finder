@@ -5,7 +5,7 @@ describe Image do
 	describe '::from_pet_id' do 
 	
 		it "will set the url" do
-			Image.from_pet_id('A037822').url.should eq 'http://www.petharbor.com/get_image.asp?RES=Detail&ID=A037822&LOCATION=ASTIN'
+			Image.from_pet_id('A037822').url.should eq 'http://www.petharbor.com/get_image.asp?RES=Detail&ID=A037822&LOCATION=ASTN'
 		end
 	
 	end

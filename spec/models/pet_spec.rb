@@ -19,7 +19,7 @@ describe Pet do
 
 		it "will generate an image" do
 			pet = Pet.from_hash(pet_id: "1234")
-			pet.image.url.should eq 'http://www.petharbor.com/get_image.asp?RES=Detail&ID=1234&LOCATION=ASTIN'
+			pet.image.url.should eq 'http://www.petharbor.com/get_image.asp?RES=Detail&ID=1234&LOCATION=ASTN'
 		end
 	
 	end
