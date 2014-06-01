@@ -1,11 +1,22 @@
-<div class="col-md-4 col-md-offset-4 results">
-  <div class="results-header"> <!-- icon with gender & species with date lost -->
-    <%= form_for(@notification) do |f| %>
-      <p> <%= @looking_for %> lost on <%= f.text_field :date_lost, @date_lost %>
-      <%= f.submit "Subscribe to this Feed", class: "btn btn-primary" %>
+<div class="results">
+  <div class="results-header centered">
+    <%= form_for @subscription, url: { action: 'results' }, html: { method: 'post' } do |f| %>
+      <p><%= @looking_for %> lost on <%= f.text_field :found_since %></p>
+      <p><%= f.submit "Subscribe to this Feed", class: "btn btn-primary" %></p>
     <% end %> 
   </div>
   <div class="results-grid"> 
+  	<table class="table table-responsive">
+  		<% @pets.each do |pet| %>
+  			<tr>
+  				<td width=200px ><%= image_tag pet.image_url, class:'pet-image' %></td>
+  				<td>
+  					<h5><%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %></h5>
+  					<p>Found <%= pet.found_days_ago %> days ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
+  					<p></p>
+  				</td> 
+  			</tr>
+  		<% end %>
+  	</table>
   </div>
-
 </div>

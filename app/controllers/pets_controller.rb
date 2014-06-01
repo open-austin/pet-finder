@@ -7,11 +7,14 @@ class PetsController < ApplicationController
 
   # GET /pets/results
   def results
-    @gender = params[:gender]
-    @species = params[:species]
-    @found_since = params[:found_since]
-    @looking_for = "#{@gender} #{@species}"
-    @pets = Pet.where("species = ? AND gender = ? AND found_on > ?", @species, @gender, @found_since)
+    gender = params[:subscription][:gender]
+    species = params[:subscription][:species]
+    @found_since = params[:subscription][:found_since]
+    @looking_for = "#{gender} #{species}"
+    @subscription = Subscription.new
+    @pets = Pet.where(species: species)
+    @pets = @pets.where(gender: gender) if !gender.nil?
+    @pets = @pets.where("found_on > ?", Date.strptime(@found_since,"%m/%d/%Y")) if !@found_since.nil?
   end
 
   # GET /pets/1
