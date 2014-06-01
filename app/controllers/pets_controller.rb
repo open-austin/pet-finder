@@ -21,12 +21,8 @@ class PetsController < ApplicationController
 
   # POST /pets/results/subscribe
   def subscribe
-    @notification = Subscription.new
-    @gender = params[:gender]
-    @species = params[:species]
-    @found_since = params[:found_since]
-    @looking_for = "#{@gender} #{@species}"
-    @pets = Pet.where("species = ? AND gender = ? AND found_on > ?", @species, @gender, @found_since)
+    subscription = Subscription.new(params[:subscription])
+    render json: { success: subscription.save }
   end
 
 end
