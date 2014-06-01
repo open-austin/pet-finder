@@ -32,6 +32,6 @@ class Pet < ActiveRecord::Base
   end
 
   def found_days_ago
-    (Date.today - found_on).to_i
+    (Date.today - found_on).to_i unless found_on.nil?
   end
 end
