@@ -6,7 +6,7 @@ class PetPopulatorController < ApplicationController
   	pets_to_save = pets.select {|pet| Pet.where(pet_id: pet.pet_id).empty?}
   	pets_to_save.each do |pet| 
       pet.save
-      NotificationGenerator.generate_for(pet)
+      NotificationSender.matching(pet).send_all
     end
   	render nothing: true
   end

@@ -31,4 +31,22 @@ describe Notification do
 		end
 	
 	end
+
+	describe '#should_email?' do 
+	
+		it "will return whether the notification should be emailed" do
+			Notification.new.should_email?.should be_false
+			Notification.new(email: 'test@email.com').should_email?.should be_true
+		end
+	
+	end
+
+	describe '#should_text?' do 
+	
+		it "will return whether the notification should be emailed" do
+			Notification.new.should_text?.should be_false
+			Notification.new(phone: '123-456-7890').should_text?.should be_true
+		end
+	
+	end
 end

@@ -1,10 +1,10 @@
-describe NotificationGenerator do
+describe NotificationSender do
 
 	before do
 		ActionMailer::Base.deliveries.clear
 	end
 
-	describe '::generate_for' do 
+	describe '::matching' do 
 
 		before do
 			@not1 = Notification.create(email: 'test1@email.com', species: 'dog', gender: 'male', color: "brown")
@@ -14,19 +14,19 @@ describe NotificationGenerator do
 
 		it "will send notifications to searches that positively match" do
 			pet = Pet.new(species: 'dog', gender: 'male', fixed: true, color: 'brown')
-			NotificationGenerator.generate_for(pet)
+			NotificationSender.matching(pet).send_all
 			ActionMailer::Base.deliveries.count.should eq 1
 		end
 
 		it "will send notifications to searches that neutrally match" do
 			pet = Pet.new(species: 'dog', gender: 'female', fixed: true, color: 'brown')
-			NotificationGenerator.generate_for(pet)
+			NotificationSender.matching(pet).send_all
 			ActionMailer::Base.deliveries.count.should eq 1
 		end
 
 		it "will not send notifications to searches that negatively match" do
 			pet = Pet.new(species: 'cat', fixed: true)
-			NotificationGenerator.generate_for(pet)
+			NotificationSender.matching(pet).send_all
 			ActionMailer::Base.deliveries.should be_empty
 		end
 
