@@ -9,9 +9,9 @@ class PetsController < ApplicationController
   def results
     @description = search_description
 
-    @pets = Pet.where(species: subscription_params[:species])
+    @pets = Pet.where(species: subscription_params[:species]).sort_by(&:found_on).reverse
     @pets = @pets.maybe(:gender, subscription_params[:gender])
-    @pets = @pets.where("found_on > ?", Date.strptime(subscription_params[:found_since],"%m/%d/%Y")).sort_by(&:found_on).reverse if subscription_params[:found_since].present?
+    @pets = @pets.where("found_on > ?", Date.strptime(subscription_params[:found_since],"%m/%d/%Y")) if subscription_params[:found_since].present?
 
     @subscription = Subscription.new(subscription_params)
   end
