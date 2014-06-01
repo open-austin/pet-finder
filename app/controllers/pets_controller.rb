@@ -1,6 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_search, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /pets/search
   def search
   
