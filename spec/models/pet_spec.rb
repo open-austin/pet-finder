@@ -4,6 +4,24 @@ describe Pet do
 
 	let (:pet) { subject }
 
+	describe '::maybe' do 
+
+		before do
+			@pet1 = Pet.create(species: 'cat')
+			@pet2 = Pet.create(species: 'cat')
+			@pet3 = Pet.create(species: 'dog')
+		end
+	
+		it "will load pets by the specified value" do
+			Pet.maybe(:species, 'cat').should =~ [ @pet1, @pet2 ]
+		end
+
+		it "will ignore nil values" do
+			Pet.maybe(:species, nil).should =~ [ @pet1, @pet2, @pet3 ]
+		end
+	
+	end
+
 	describe '::from_hash' do 
 	
 		it "will add a persisted shelter" do

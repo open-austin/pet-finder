@@ -7,14 +7,13 @@ class PetsController < ApplicationController
 
   # GET /pets/results
   def results
-    gender = params[:subscription][:gender]
-    species = params[:subscription][:species]
-    @found_since = params[:subscription][:found_since]
-    @looking_for = "#{gender} #{species}"
-    @subscription = Subscription.new
-    @pets = Pet.where(species: species)
-    @pets = @pets.where(gender: gender) if !gender.nil?
-    @pets = @pets.where("found_on > ?", Date.strptime(@found_since,"%m/%d/%Y")) if !@found_since.nil?
+    @description = search_description
+
+    @pets = Pet.where(species: subscription_params[:species])
+    @pets = @pets.maybe(:gender, subscription_params[:gender])
+    @pets = @pets.where("found_on > ?", Date.strptime(subscription_params[:found_since],"%m/%d/%Y")) if subscription_params[:found_since].present?
+
+    @subscription = Subscription.new(subscription_params)
   end
 
   # GET /pets/1
@@ -26,6 +25,20 @@ class PetsController < ApplicationController
   def subscribe
     subscription = Subscription.new(params[:subscription])
     render json: { success: subscription.save }
+  end
+
+  private
+
+  def subscription_params
+    params[:subscription]
+  end
+
+  def search_description
+    gender, species, found_since = subscription_params[:gender], subscription_params[:species], subscription_params[:found_since]
+    puts subscription_params.inspect
+    desc = gender.present? ? "#{gender} " : ""
+    desc += "#{species} lost"
+    desc += " on #{Date.strptime(found_since, '%m/%d/%Y')}" if found_since.present?
   end
 
 end

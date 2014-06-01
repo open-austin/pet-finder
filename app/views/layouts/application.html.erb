@@ -41,7 +41,9 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <%= image_tag 'logo.png', class: 'logo' %>
+          <a href="<%= root_path %>">
+            <%= image_tag 'logo.png', class: 'logo' %>
+          </a>
         </div>
       </div>
       <%= yield %>
