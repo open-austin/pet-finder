@@ -9,7 +9,7 @@ class PetsController < ApplicationController
   def results
     @description = search_description
 
-    @pets = Pet.where(species: subscription_params[:species]).sort_by(&:found_on).reverse
+    @pets = Pet.where(species: subscription_params[:species]).order(found_on: :desc)
     @pets = @pets.maybe(:gender, subscription_params[:gender])
     @pets = @pets.where("found_on > ?", Date.strptime(subscription_params[:found_since],"%m/%d/%Y")) if subscription_params[:found_since].present?
 
