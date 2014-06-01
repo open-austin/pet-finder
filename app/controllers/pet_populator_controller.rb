@@ -4,7 +4,10 @@ class PetPopulatorController < ApplicationController
   def update
   	pets = pets_params.map {|pet_hash| Pet.from_hash(pet_hash)}
   	pets_to_save = pets.select {|pet| Pet.where(pet_id: pet.pet_id).empty?}
-  	pets_to_save.each {|pet| pet.save}
+  	pets_to_save.each do |pet| 
+      pet.save
+      NotificationGenerator.generate_for(pet)
+    end
   	render nothing: true
   end
 

@@ -31,6 +31,12 @@ describe PetPopulatorController do
 			Pet.count.should eq 4
 		end
 
+		it "will send out notifications for new pets" do
+			Notification.create(email: 'test@email.com', species: 'dog')
+			post :update, pets_string
+			ActionMailer::Base.deliveries.count.should eq 1
+		end
+
 	end
 
 	describe "POST 'reconcile'" do
