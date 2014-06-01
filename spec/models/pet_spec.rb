@@ -4,6 +4,20 @@ describe Pet do
 
 	let (:pet) { subject }
 
+	describe '::active' do 
+
+		before do
+			@pet1 = Pet.create(active: true)
+			@pet2 = Pet.create(active: false)
+			@pet3 = Pet.create(active: true)
+		end
+	
+		it "will return active pets" do
+			Pet.active.should =~ [ @pet1, @pet3 ]
+		end
+	
+	end
+
 	describe '::maybe' do 
 
 		before do
