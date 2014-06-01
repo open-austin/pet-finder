@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
+ready = ->
   $('#subscription_found_since').datepicker()
 
   $('.pet-icon').click(->
@@ -21,3 +21,6 @@ jQuery ->
   	# enable submit
   	petForm.find(':submit').removeAttr('disabled')
   	)
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

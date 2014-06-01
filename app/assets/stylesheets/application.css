@@ -18,6 +18,8 @@
 
  .logo { max-height: 150px; }
 
+ a:hover { background: none; }
+
  .centered {
  	text-align: center;
  }

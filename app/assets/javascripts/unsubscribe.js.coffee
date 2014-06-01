@@ -1,4 +1,4 @@
-jQuery ->
+ready = ->
 	form = $('form#unsubscribe-form')
 
 	form.submit((event)-> 
@@ -14,3 +14,6 @@ jQuery ->
 					alert('There was an error - please try again.')
 			)
 	)
+	
+$(document).ready(ready);
+$(document).on('page:load', ready);
