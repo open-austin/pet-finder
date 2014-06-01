@@ -17,14 +17,15 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: "atxpetfinder.com",
-  authentication: "plain",
-  enable_starttls_auto: true,
-  user_name: ENV["GMAIL_USERNAME"],
-  password: ENV["GMAIL_PASSWORD"]
-}
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "atxpetfinder.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: 'petfinderatx@gmail.com', # ENV["GMAIL_USERNAME"],
+    password: 'atxhack4change', # ENV["GMAIL_PASSWORD"],
+    openssl_verify_mode: 'none'
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
