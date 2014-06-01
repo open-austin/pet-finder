@@ -11,12 +11,12 @@ describe PetPopulatorController do
 
 		let (:pets_string) do
 			{ 
-				pets: [ 
-					pet_hash(pet_id: '1234'), 
-					pet_hash(name: 'duffy'), 
-					pet_hash(species: 'dog'), 
-					pet_hash(shelter_name: 'Test Shelter') 
-				]
+				pets: {
+					"0" => pet_hash(pet_id: '1234'), 
+					"1" => pet_hash(name: 'duffy'), 
+					"2" => pet_hash(species: 'dog'), 
+					"3" => pet_hash(shelter_name: 'Test Shelter') 
+				}
 			}
 		end
 
@@ -39,7 +39,7 @@ describe PetPopulatorController do
 			Pet.create(pet_id: '1234')
 			Pet.create(pet_id: '2345')
 			Pet.create(pet_id: '3456')
-			post :reconcile, { pet_ids: [ '1234', '3456' ] }
+			post :reconcile, { pet_ids: { '0' => '1234', '1' => '3456' } }
 		end
 
 		it "will leave the sent ids active" do
