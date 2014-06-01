@@ -1,12 +1,4 @@
-<!-- individual pet view -->
-
-
-<form><a href="search" class="btn btn-info btn xs" role="button">Back</a></form>
-
-<!-- <a href="" class="btn btn-info btn xs" role="button">List</a>
-
-<a href="#" class="btn btn-info btn xs" role="button">Next</a>
-</br> -->
+<%= link_to "Previous", :back, class: "btn btn-info btn xs" %>
 
 <div class="container-fluid">
   <div class="row">
@@ -16,7 +8,7 @@
             <h4><%= @pet.name %></h4>
               <p> <%= @pet.name %> is a <%= @pet.gender %> <%= @pet.species %> found on <%= @pet.found_on %></p>
           </div>
-        <img src= <%= @pet.image %>
+        <img src= <%= @pet.image_url %>
         </div>
       </div>          
     </div>
