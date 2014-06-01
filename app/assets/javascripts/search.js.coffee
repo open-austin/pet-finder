@@ -10,7 +10,7 @@ jQuery ->
   	$('.pet-icon').removeClass('active')
   	$(this).addClass('active')
 
-  	petForm = $('#new_subscription')
+  	petForm = $('#temp_new_subscription')
   	# set species in form
   	species = $(this).data('species')
   	petForm.find('#subscription_species').val(species)
