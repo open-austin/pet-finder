@@ -2,7 +2,7 @@ class PetsController < ApplicationController
   
   # GET /pets/search
   def search
-  
+    @subscription = Subscription.new
   end
 
   # GET /pets/results

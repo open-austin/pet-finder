@@ -6,10 +6,10 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  .main-page {
+  .centered {
   	text-align: center;
   }
 
-  .main-form-first {
+  /*.main-form-first {
 		border: 5px solid #000;
-	}
+	}*/

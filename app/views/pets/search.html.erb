@@ -1,36 +1,35 @@
-<div class="col-md-4 col-md-offset-4 main-page">
-  <br />
-  <%= form_tag do %>
-  <div class="main-form-first">
-    <h2>I lost my...</h2>
-    <div class="row" id="species">
-      <%= image_tag "doglogo.png", width: "200", height: "200", :data => { toggle: "collapse", target: "#dogform"} %>
-      <%= image_tag "catlogo.png", width: "200", height: "200", :data => { toggle: "collapse", target: "#catform"} %>
-      <%= image_tag "otherlogo.png", width: "200", height: "200", :data => { toggle: "collapse", target: "#otherform"} %>
-      <br />
-      <br />
-    </div>
+<%= form_for @subscription, url: { action: 'results' }, html: { method: 'get' } do |f| %>
+<div class="main-form-first centered">
+  <h2>I lost my...</h2>
+  <div class="row">
+    <div class='pet-icon dog-icon' data-species='dog'></div>
+    <div class='pet-icon cat-icon' data-species='cat'></div>
+    <div class='pet-icon other-icon' data-species='other'></div>
   </div>
-  <br />
-  
-  <div class="collapse" id="dogform">
-    <h3>Dog</h3>
-    <%= hidden_field_tag 'species', 'dog' %>
-    <%= render "main_form" %>
+</div>
+
+<div class="collapse" id="hidden-form">
+  <%= f.hidden_field 'species' %>
+
+  <div class='form-group'>
+    <%= f.label :found_since, 'When?', class: 'invisible'  %>
+    <%= f.text_field :found_since, class: 'form-control', placeholder: 'When did you lose your pet?' %>
   </div>
-  <div class="collapse" id="catform">
-    <h3>Cat</h3>
-    <%= hidden_field_tag 'species', 'cat' %>
-    <%= render "main_form" %>
+
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-default">
+      <input type="radio" name="gender" value="male"> Male
+    </label>
+    <label class="btn btn-default">
+      <input type="radio" name="gender" value="female"> Female
+    </label>
   </div>
-  <div class="collapse" id="otherform">
-    <h3>Other</h3>
-    <%= hidden_field_tag 'species', 'other' %>
-    <%= render "main_form" %>
-  </div>
-  <br />
+
   <div class="actions">
-    <%= submit_tag "Search", class: "btn btn-warning btn-lg btn-block" %>
+    <%= f.submit "Search", disabled: true, class: "btn btn-success btn-lg btn-block" %>
   </div>
+
+</div>
+
+
 <% end %>
-</div><!--/row-->
