@@ -1,5 +1,5 @@
 class PetPopulatorController < ApplicationController
-  before_filter :verified_request?
+  skip_before_action :verify_authenticity_token
 
   def update
   	pets = pets_params[:pets].map {|pet_hash| Pet.from_hash(pet_hash)}
