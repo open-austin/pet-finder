@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require jquery.ui.datepicker
  *= require_tree .
  *= require_self
  */
