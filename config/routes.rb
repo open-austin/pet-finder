@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'pets/results', to: 'pets#results', as: 'results'
   get 'pets/:id', to: 'pets#show', as: 'show'
   post 'pets/results/subscribe', to: 'pets#subscribe', as: 'subscribe'
+  post 'pets/results/unsubscribe', to: 'pets#unsubscribe', as: 'unsubscribe'
   
   root to: 'pets#search'
 end
