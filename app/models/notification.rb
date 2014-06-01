@@ -4,12 +4,14 @@ class Notification < ActiveRecord::Base
 
 	attr_accessible :email, :phone, :species, :gender, :fixed, :found_since, :color
 
+	scope :maybe, ->(prop, value) { where(prop => [ value, nil ]) }
+
 	def contact
 		@contact ||= Contact.new(email, phone)
 	end
 
 	def send_notification
-		send_email if contact.email.present?
+		send_notify_email if contact.email.present?
 		send_text if contact.phone.present?
 	end
 
