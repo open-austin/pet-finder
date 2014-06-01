@@ -39,7 +39,9 @@
         </td>
         <td>
           <h5><%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %></h5>
-          <p>Found <%= pet.found_days_ago %> days ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
+          <% unless pet.found_on.nil? %>
+            <p>Found <%= pet.found_days_ago %> days ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
+          <% end %>
           <p></p>
         </td> 
       </tr>
