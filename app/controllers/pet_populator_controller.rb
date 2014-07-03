@@ -23,20 +23,11 @@ class PetPopulatorController < ApplicationController
   private
 
   def pets_params
-    pets_hashes = []
-    params[:pets].each do |pet|
-      pet[1].delete(:status)
-      pets_hashes.push pet[1]
-    end
-    pets_hashes
+    params[:pets].map(&:last).map {|pet_hash| pet_hash.except :status}
   end
 
   def id_params
-    ids = []
-    params[:pet_ids].each do |id|
-      ids.push id[1]
-    end
-    ids
+    params[:pet_ids].map(&:last)
   end
 
 end
