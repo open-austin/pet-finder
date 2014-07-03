@@ -5,7 +5,7 @@ describe PetPopulatorController do
 	describe "POST 'update'" do
 
 		def pet_hash(options={})
-			defaults = { species: 'cat', name: 'fluffy', pet_id: SecureRandom.uuid, gender: 'male', fixed: true, breed: 'tabby', found_on: Date.new(2014).to_s, scraped_at: Time.new.to_s, shelter_name: 'Austin Pet Shelter', color: 'brown' } 
+			defaults = { status: 'BOTH', species: 'cat', name: 'fluffy', pet_id: SecureRandom.uuid, gender: 'male', fixed: true, breed: 'tabby', found_on: Date.new(2014).to_s, scraped_at: Time.new.to_s, shelter_name: 'Austin Pet Shelter', color: 'brown' } 
 			defaults.merge options
 		end
 
@@ -32,6 +32,7 @@ describe PetPopulatorController do
 		end
 
 		it "will send out notifications for new pets" do
+			# puts ActionMailer::Base.deliveries.count
 			Subscription.create(email: 'test@email.com', species: 'dog')
 			post :update, pets_string
 			ActionMailer::Base.deliveries.count.should eq 1

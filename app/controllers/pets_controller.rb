@@ -38,12 +38,11 @@ class PetsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:species, :found_since, :gender)
+    params.require(:subscription).permit(:email, :phone, :species, :found_since, :gender)
   end
 
   def search_description
     gender, species, found_since = subscription_params[:gender], subscription_params[:species], subscription_params[:found_since]
-    puts subscription_params.inspect
     desc = gender.present? ? "#{gender} " : ""
     desc += "#{species} lost"
     desc += " on #{Date.strptime(found_since, '%m/%d/%Y')}" if found_since.present?

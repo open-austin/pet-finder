@@ -17,7 +17,6 @@ describe PetsController do
 		end
 
 		it "will send out a welcome email" do
-			Pet.create(species: 'cat', gender: 'male')
 			post :subscribe, subscription_params
 			ActionMailer::Base.deliveries.count.should eq 1
 		end
@@ -25,7 +24,6 @@ describe PetsController do
 		it "will not send out notifications for existing pets" do
 			Pet.create(species: 'cat', gender: 'male')
 			post :subscribe, subscription_params
-			puts ActionMailer::Base.deliveries
 			ActionMailer::Base.deliveries.count. should eq 1
 		end
 
