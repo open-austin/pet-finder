@@ -25,10 +25,6 @@ class Pet < ActiveRecord::Base
     active
   end
 
-  def image_url
-    url ="http://www.petharbor.com/get_image.asp?RES=Detail&ID=#{pet_id}&LOCATION=ASTN"
-  end
-
   def found_days_ago
     (Date.today - found_on).to_i unless found_on.nil?
   end
