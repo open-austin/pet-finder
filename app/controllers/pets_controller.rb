@@ -23,7 +23,8 @@ class PetsController < ApplicationController
 
   # POST /pets/results/subscribe
   def subscribe
-    subscription = Subscription.new(params[:subscription])
+    subscription = Subscription.new(subscription_params)
+    NotificationMailer.welcome_email(subscription.contact).deliver if subscription.should_email?
     render json: { success: subscription.save }
   end
 
@@ -37,7 +38,7 @@ class PetsController < ApplicationController
   private
 
   def subscription_params
-    params[:subscription]
+    params.require(:subscription).permit(:species, :found_since, :gender)
   end
 
   def search_description

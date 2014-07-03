@@ -25,6 +25,7 @@ class PetPopulatorController < ApplicationController
   def pets_params
     pets_hashes = []
     params[:pets].each do |pet|
+      pet[1].delete(:status)
       pets_hashes.push pet[1]
     end
     pets_hashes

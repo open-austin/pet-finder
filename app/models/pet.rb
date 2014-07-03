@@ -2,9 +2,6 @@ class Pet < ActiveRecord::Base
   belongs_to :shelter
   belongs_to :image
 
-  attr_accessible :species, :name, :pet_id, :gender, :fixed, :breed, :found_on, :scraped_at, :color, :active
-  attr_accessible :shelter, :image
-
   scope :active, -> { where(active: true) }
   scope :maybe, ->(prop, value) { where(prop => value) unless value.nil? }
 

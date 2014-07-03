@@ -2,8 +2,6 @@ class Subscription < ActiveRecord::Base
 
 	Contact = Struct.new(:email, :phone)
 
-	attr_accessible :email, :phone, :species, :gender, :fixed, :found_since, :color
-
 	scope :maybe, ->(prop, value) { where(prop => [ value, nil ]) }
 
 	def contact
@@ -16,12 +14,6 @@ class Subscription < ActiveRecord::Base
 
 	def should_text?
 		phone.present?
-	end
-
-	private
-
-	def send_welcome_email
-		NotificationMailer.welcome_email(contact).deliver
 	end
 
 end

@@ -4,7 +4,7 @@ describe PetsController do
 
 	describe "POST 'subscribe'" do
 
-		let (:subscription_params) { { email: 'test@email.com', species: 'cat', gender: 'male', found_since: Date.new(2014).to_s } } 
+		let (:subscription_params) { { subscription: { email: 'test@email.com', species: 'cat', gender: 'male', found_since: Date.new(2014).to_s } } } 
 			
 		it "will create a subscription" do
 			post :subscribe, subscription_params
@@ -16,10 +16,17 @@ describe PetsController do
 			response.body['success'].should be_true
 		end
 
+		it "will send out a welcome email" do
+			Pet.create(species: 'cat', gender: 'male')
+			post :subscribe, subscription_params
+			ActionMailer::Base.deliveries.count.should eq 1
+		end
+
 		it "will not send out notifications for existing pets" do
 			Pet.create(species: 'cat', gender: 'male')
 			post :subscribe, subscription_params
-			ActionMailer::Base.deliveries.should be_empty
+			puts ActionMailer::Base.deliveries
+			ActionMailer::Base.deliveries.count. should eq 1
 		end
 
 	end
