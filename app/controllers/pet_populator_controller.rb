@@ -1,4 +1,7 @@
 class PetPopulatorController < ApplicationController
+  config = OpenStruct.new(YAML.load_file("#{Rails.root}/config/secrets.yml").with_indifferent_access[Rails.env][:http_auth])
+
+  http_basic_authenticate_with name: config.username, password: config.password
   skip_before_action :verify_authenticity_token
 
   def update
