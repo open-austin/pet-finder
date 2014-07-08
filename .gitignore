@@ -17,3 +17,4 @@
 
 /config/api.yml
 /config/database.yml
+/config/secrets.yml
