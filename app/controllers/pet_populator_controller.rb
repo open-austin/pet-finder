@@ -1,4 +1,5 @@
 class PetPopulatorController < ApplicationController
+  http_basic_authenticate_with name: Figaro.env.http_username, password: Figaro.env.http_password
   skip_before_action :verify_authenticity_token
 
   def update

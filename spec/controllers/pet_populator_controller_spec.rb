@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe PetPopulatorController do
+	include AuthHelper
 
 	describe "POST 'update'" do
 
@@ -20,22 +21,41 @@ describe PetPopulatorController do
 			}
 		end
 
-		it "will add non-existent animals to the database" do
+		it "will reject unauthenticated requests" do
 			post :update, pets_string
-			Pet.count.should eq 4
+			expect(response).to_not be_success
+			Pet.count.should eq 0
 		end
 
-		it "will not duplicate pet ids" do
-			Pet.create(pet_id: '1234')
-			post :update, pets_string
-			Pet.count.should eq 4
-		end
+		context 'when authenticated properly' do
 
-		it "will send out notifications for new pets" do
-			# puts ActionMailer::Base.deliveries.count
-			Subscription.create(email: 'test@email.com', species: 'dog')
-			post :update, pets_string
-			ActionMailer::Base.deliveries.count.should eq 1
+			before :each do
+				http_login 'username', 'password'
+			end
+
+			it "will succeed" do
+				post :update, pets_string
+				expect(response).to be_success
+			end
+
+			it "will add non-existent animals to the database" do
+				post :update, pets_string
+				Pet.count.should eq 4
+			end
+
+			it "will not duplicate pet ids" do
+				Pet.create(pet_id: '1234')
+				post :update, pets_string
+				Pet.count.should eq 4
+			end
+
+			it "will send out notifications for new pets" do
+				# puts ActionMailer::Base.deliveries.count
+				Subscription.create(email: 'test@email.com', species: 'dog')
+				post :update, pets_string
+				ActionMailer::Base.deliveries.count.should eq 1
+			end
+
 		end
 
 	end
@@ -46,15 +66,33 @@ describe PetPopulatorController do
 			Pet.create(pet_id: '1234')
 			Pet.create(pet_id: '2345')
 			Pet.create(pet_id: '3456')
-			post :reconcile, { pet_ids: { '0' => '1234', '1' => '3456' } }
 		end
 
-		it "will leave the sent ids active" do
-			Pet.where(pet_id: [ '1234', '3456' ]).each {|pet| pet.should be_active }
+		it "will reject unauthenticated requests" do
+			post :reconcile, { pet_ids: { '0' => '1234', '1' => '3456' } }
+			expect(response).to_not be_success
+			Pet.where(pet_id: '2345').first.should be_active
 		end
-		
-		it "will mark missing ids as inactive" do
-			Pet.where(pet_id: '2345').first.should_not be_active
+
+		context 'when authenticated properly' do
+
+			before :each do
+				http_login 'username', 'password'
+				post :reconcile, { pet_ids: { '0' => '1234', '1' => '3456' } }
+			end
+
+			it "will succeed" do
+				expect(response).to be_success
+			end
+
+			it "will leave the sent ids active" do
+				Pet.where(pet_id: [ '1234', '3456' ]).each {|pet| pet.should be_active }
+			end
+			
+			it "will mark missing ids as inactive" do
+				Pet.where(pet_id: '2345').first.should_not be_active
+			end
+			
 		end
 
 	end
