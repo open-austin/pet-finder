@@ -43,4 +43,6 @@ gem 'rspec-rails', group: [ :development, :test ]
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 
+gem 'figaro'
+
 ruby '2.1.0'
