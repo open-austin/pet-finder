@@ -45,4 +45,6 @@ gem 'pg', group: :production
 
 gem 'figaro'
 
+gem 'aws-sdk', '~> 1.0'
+
 ruby '2.1.0'
