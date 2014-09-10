@@ -11,8 +11,8 @@ default: &default
 
 development:
   <<: *default
-  # database: db/development.sqlite3
-  adapter: postgresql
+  database: db/development.sqlite3
+  # adapter: postgresql
   database: petfinder
   host: localhost
 
