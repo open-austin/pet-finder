@@ -13,7 +13,6 @@ development:
   <<: *default
   database: db/development.sqlite3
   # adapter: postgresql
-  database: petfinder
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
