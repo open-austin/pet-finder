@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.1.0
 env:
-  - http_username=username http_password=password
+  - http_username=username http_password=password GMAIL_USERNAME=test@gmail.com GMAIL_PASSWORD=testpass
