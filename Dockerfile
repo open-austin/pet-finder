@@ -1,4 +1,4 @@
-FROM ruby:2.1
+FROM ruby:2.1.3
 
 MAINTAINER Marcos Vanetta(marcosvanetta@gmail.com)
 
@@ -16,8 +16,8 @@ WORKDIR /app
 
 RUN bundle
 
-RUN rake db:migrate
+RUN bin/rake db:migrate
 
 EXPOSE 3000
 
-ENTRYPOINT rails s
+ENTRYPOINT bin/rails s
