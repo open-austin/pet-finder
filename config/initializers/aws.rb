@@ -1,4 +1,4 @@
 AWS.config(
-  access_key_id: Figaro.env.s3_key_id,
-  secret_access_key: Figaro.env.s3_secret
+  access_key_id: Figaro.env.aws_key,
+  secret_access_key: Figaro.env.aws_secret
   )

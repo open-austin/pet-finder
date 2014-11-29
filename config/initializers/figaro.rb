@@ -1,1 +1,3 @@
-raise StandardError.new('You must set http_username and http_password in the ENV') unless Figaro.env.respond_to?(:http_username) && Figaro.env.respond_to?(:http_password)
+[ :http_username, :http_password, :aws_key, :aws_secret, :s3_bucket ].each do |req|
+	raise StandardError.new("You must set #{req.to_s} in the ENV") unless Figaro.env.respond_to? req
+end
