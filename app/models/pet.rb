@@ -1,6 +1,5 @@
 class Pet < ActiveRecord::Base
   belongs_to :shelter
-  belongs_to :image
 
   scope :active, -> { where(active: true) }
   scope :maybe, ->(prop, value) { where(prop => value) unless value.nil? }
@@ -10,9 +9,6 @@ class Pet < ActiveRecord::Base
 	  	shelter = Shelter.find_or_create_by(name: hash.delete(:shelter_name))  
 	  	hash.merge! shelter: shelter
 	  end
-
-  	image = Image.from_pet_id(hash[:pet_id])
-  	hash.merge! image: image unless image.blank?
 
   	Pet.new(hash)
   end

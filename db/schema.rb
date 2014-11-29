@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601150304) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "images", force: true do |t|
-    t.string   "path"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141129055832) do
 
   create_table "pets", force: true do |t|
     t.string   "species"
@@ -32,21 +23,20 @@ ActiveRecord::Schema.define(version: 20140601150304) do
     t.date     "found_on"
     t.datetime "scraped_at"
     t.integer  "shelter_id"
-    t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color"
     t.boolean  "active",     default: true
+    t.string   "image"
   end
 
-  add_index "pets", ["breed"], name: "index_pets_on_breed", using: :btree
-  add_index "pets", ["color"], name: "index_pets_on_color", using: :btree
-  add_index "pets", ["fixed"], name: "index_pets_on_fixed", using: :btree
-  add_index "pets", ["gender"], name: "index_pets_on_gender", using: :btree
-  add_index "pets", ["image_id"], name: "index_pets_on_image_id", using: :btree
-  add_index "pets", ["pet_id"], name: "index_pets_on_pet_id", using: :btree
-  add_index "pets", ["shelter_id"], name: "index_pets_on_shelter_id", using: :btree
-  add_index "pets", ["species"], name: "index_pets_on_species", using: :btree
+  add_index "pets", ["breed"], name: "index_pets_on_breed"
+  add_index "pets", ["color"], name: "index_pets_on_color"
+  add_index "pets", ["fixed"], name: "index_pets_on_fixed"
+  add_index "pets", ["gender"], name: "index_pets_on_gender"
+  add_index "pets", ["pet_id"], name: "index_pets_on_pet_id"
+  add_index "pets", ["shelter_id"], name: "index_pets_on_shelter_id"
+  add_index "pets", ["species"], name: "index_pets_on_species"
 
   create_table "shelters", force: true do |t|
     t.string   "name"
@@ -68,11 +58,11 @@ ActiveRecord::Schema.define(version: 20140601150304) do
     t.string   "color"
   end
 
-  add_index "subscriptions", ["color"], name: "index_subscriptions_on_color", using: :btree
-  add_index "subscriptions", ["fixed"], name: "index_subscriptions_on_fixed", using: :btree
-  add_index "subscriptions", ["gender"], name: "index_subscriptions_on_gender", using: :btree
-  add_index "subscriptions", ["search_id"], name: "index_subscriptions_on_search_id", using: :btree
-  add_index "subscriptions", ["species"], name: "index_subscriptions_on_species", using: :btree
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
+  add_index "subscriptions", ["color"], name: "index_subscriptions_on_color"
+  add_index "subscriptions", ["fixed"], name: "index_subscriptions_on_fixed"
+  add_index "subscriptions", ["gender"], name: "index_subscriptions_on_gender"
+  add_index "subscriptions", ["search_id"], name: "index_subscriptions_on_search_id"
+  add_index "subscriptions", ["species"], name: "index_subscriptions_on_species"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
 end
