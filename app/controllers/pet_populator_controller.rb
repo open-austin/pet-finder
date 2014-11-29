@@ -5,12 +5,10 @@ class PetPopulatorController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def update
-  	pets = pets_params.map do |pet_hash| 
+  	pets_params.select {|pet_hash| Pet.where(pet_id: pet_hash[:pet_id]).empty?}.each do |pet_hash| 
       pet_hash[:image] = ImageRepository.store pet_hash.delete(:image), pet_hash[:pet_id]
-      Pet.from_hash(pet_hash)
-    end
-  	pets_to_save = pets.select {|pet| Pet.where(pet_id: pet.pet_id).empty?}
-  	pets_to_save.each do |pet| 
+      
+      pet = Pet.from_hash(pet_hash)
       pet.save
       NotificationSender.matching(pet).send_all
     end
