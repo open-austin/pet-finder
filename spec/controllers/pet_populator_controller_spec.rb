@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe PetPopulatorController do
+describe PetPopulatorController, vcr: true do
 	include AuthHelper
 
 	describe "POST 'update'" do
 
 		def pet_hash(options={})
-			defaults = { status: 'BOTH', species: 'cat', name: 'fluffy', pet_id: SecureRandom.uuid, gender: 'male', fixed: true, breed: 'tabby', found_on: Date.new(2014).to_s, scraped_at: Time.new.to_s, shelter_name: 'Austin Pet Shelter', color: 'brown' } 
+			defaults = { image: 'http://www.petharbor.com/get_image.asp?RES=Detail&ID=A692581&LOCATION=ASTN', status: 'BOTH', species: 'cat', name: 'fluffy', pet_id: SecureRandom.uuid, gender: 'male', fixed: true, breed: 'tabby', found_on: Date.new(2014).to_s, scraped_at: Time.new.to_s, shelter_name: 'Austin Pet Shelter', color: 'brown' } 
 			defaults.merge options
 		end
 
@@ -30,6 +30,7 @@ describe PetPopulatorController do
 		context 'when authenticated properly' do
 
 			before :each do
+				AWS.stub!
 				http_login 'username', 'password'
 			end
 
