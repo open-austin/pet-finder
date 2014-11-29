@@ -47,4 +47,7 @@ gem 'figaro'
 
 gem 'aws-sdk', '~> 1.0'
 
+gem 'vcr', group: :test
+gem 'webmock', group: :test
+
 ruby '2.1.3'
