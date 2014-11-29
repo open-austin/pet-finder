@@ -1,9 +1,14 @@
+require 'securerandom'
+
 class PetPopulatorController < ApplicationController
   http_basic_authenticate_with name: Figaro.env.http_username, password: Figaro.env.http_password
   skip_before_action :verify_authenticity_token
 
   def update
-  	pets = pets_params.map {|pet_hash| Pet.from_hash(pet_hash)}
+  	pets = pets_params.map do |pet_hash| 
+      pet_hash[:image] = ImageRepository.store pet_hash.delete(:image), pet_hash[:pet_id]
+      Pet.from_hash(pet_hash)
+    end
   	pets_to_save = pets.select {|pet| Pet.where(pet_id: pet.pet_id).empty?}
   	pets_to_save.each do |pet| 
       pet.save

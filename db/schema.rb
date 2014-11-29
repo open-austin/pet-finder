@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601150304) do
-
-  create_table "images", force: true do |t|
-    t.string   "path"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141129055832) do
 
   create_table "pets", force: true do |t|
     t.string   "species"
@@ -29,18 +23,17 @@ ActiveRecord::Schema.define(version: 20140601150304) do
     t.date     "found_on"
     t.datetime "scraped_at"
     t.integer  "shelter_id"
-    t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color"
     t.boolean  "active",     default: true
+    t.string   "image"
   end
 
   add_index "pets", ["breed"], name: "index_pets_on_breed"
   add_index "pets", ["color"], name: "index_pets_on_color"
   add_index "pets", ["fixed"], name: "index_pets_on_fixed"
   add_index "pets", ["gender"], name: "index_pets_on_gender"
-  add_index "pets", ["image_id"], name: "index_pets_on_image_id"
   add_index "pets", ["pet_id"], name: "index_pets_on_pet_id"
   add_index "pets", ["shelter_id"], name: "index_pets_on_shelter_id"
   add_index "pets", ["species"], name: "index_pets_on_species"
