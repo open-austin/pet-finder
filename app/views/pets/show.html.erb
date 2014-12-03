@@ -5,9 +5,11 @@
     <div class=".col-xs-12 .col-sm-6 .col-md-8">
       <div class="thumbnail">
         <div class="caption">
-          <h4><%= "#{@pet.color} #{@pet.gender} #{@pet.breed}".titleize %></h4>
-          <p> <%= @pet.name.present? ? @pet.name : 'Found pet' %> is a <%= @pet.species %> found on <%= @pet.found_on %></p>
-          <p> Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a></p>
+          <h4><%= "#{@pet.gender} #{@pet.species}".titleize %></h4>
+          <p>Breed guess: <%= @pet.breed %></p>
+          <p>Color: <%= @pet.color %></p>
+          <p>Found: <%= @pet.found_on %></p>
+          <p>Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a></p>
           
         </div>
         <img src="<%= @pet.image %>"/>
