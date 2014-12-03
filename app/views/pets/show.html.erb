@@ -5,8 +5,8 @@
     <div class=".col-xs-12 .col-sm-6 .col-md-8">
       <div class="thumbnail">
         <div class="caption">
-          <h4><%= @pet.name %></h4>
-          <p> <%= @pet.name %> is a <%= @pet.gender %> <%= @pet.species %> found on <%= @pet.found_on %></p>
+          <h4><%= "#{@pet.color} #{@pet.gender} #{@pet.breed}".titleize %></h4>
+          <p> <%= @pet.name.present? ? @pet.name : 'Found pet' %> is a <%= @pet.species %> found on <%= @pet.found_on %></p>
           <p> Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a></p>
           
         </div>
