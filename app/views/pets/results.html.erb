@@ -38,7 +38,11 @@
           <% end %>
         </td>
         <td>
-          <h5><%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %></h5>
+          <h5>
+            <%= link_to show_path(pet) do %>
+              <%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %>
+            <% end %>
+          </h5>
           <% unless pet.found_on.nil? %>
             <p>Found <%= pluralize(pet.found_days_ago, 'day') %> ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
           <% end %>
