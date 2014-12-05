@@ -1,11 +1,9 @@
 class PetsController < ApplicationController
   
-  # GET /pets/search
   def search
     @subscription = Subscription.new
   end
 
-  # GET /pets/results
   def results
     @description = search_description
 
@@ -16,30 +14,11 @@ class PetsController < ApplicationController
     @subscription = Subscription.new(subscription_params)
   end
 
-  # GET /pets/1
   def show
     @pet = Pet.find(params[:id])
   end
 
-  # POST /pets/results/subscribe
-  def subscribe
-    subscription = Subscription.new(subscription_params)
-    NotificationMailer.welcome_email(subscription.contact).deliver if subscription.should_email?
-    render json: { success: subscription.save }
-  end
-
-  def unsubscribe
-    value = params[:email_or_phone]
-    Subscription.where(email: value).destroy_all
-    Subscription.where(phone: value).destroy_all
-    render json: { success: true }
-  end
-
   private
-
-  def subscription_params
-    params.require(:subscription).permit(:email, :phone, :species, :found_since, :gender)
-  end
 
   def search_description
     gender, species, found_since = subscription_params[:gender], subscription_params[:species], subscription_params[:found_since]
