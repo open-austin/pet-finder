@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129055832) do
+ActiveRecord::Schema.define(version: 20141205062144) do
 
   create_table "pets", force: true do |t|
     t.string   "species"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20141129055832) do
     t.boolean  "fixed"
     t.date     "found_since"
     t.string   "color"
+    t.string   "confirmation_code"
+    t.datetime "confirmed_at"
   end
 
   add_index "subscriptions", ["color"], name: "index_subscriptions_on_color"
