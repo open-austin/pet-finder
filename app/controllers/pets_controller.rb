@@ -20,6 +20,10 @@ class PetsController < ApplicationController
 
   private
 
+  def subscription_params
+    params.require(:subscription).permit(:email, :phone, :species, :found_since, :gender)
+  end
+
   def search_description
     gender, species, found_since = subscription_params[:gender], subscription_params[:species], subscription_params[:found_since]
     desc = gender.present? ? "#{gender} " : ""

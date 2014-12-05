@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
 
 	scope :confirmed, -> { where.not(confirmed_at: nil) }
 	scope :unconfirmed, -> { where(confirmed_at: nil) }
-	scope :maybe, ->(prop, value) { where(prop => [ value, nil ]) }
+	scope :maybe, ->(prop, value) { where(prop => [ value, nil, '' ]) }
 
 	def contact
 		@contact ||= Contact.new(email, phone)
@@ -23,6 +23,7 @@ class Subscription < ActiveRecord::Base
 	end
 
 	def confirm!
+		self.confirmation_code = nil
 		self.confirmed_at = Time.now
 	end
 

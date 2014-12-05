@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'pets/results', to: 'pets#results', as: 'results'
   get 'pets/:id', to: 'pets#show', as: 'show'
 
-  post 'confirm', to: 'subscription#confirm', as: 'confirm'
+  get 'confirm', to: 'subscription#confirm', as: 'confirm'
+  post 'confirm', to: 'subscription#confirm'
   post 'subscribe', to: 'subscription#subscribe', as: 'subscribe'
   get 'unsubscribe', to: 'subscription#unsubscribe', as: 'unsubscribe'
   post 'unsubscribe', to: 'subscription#unsubscribe'

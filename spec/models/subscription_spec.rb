@@ -5,15 +5,19 @@ describe Subscription do
 	describe '::maybe' do 
 	
 		before do
-			@subscription = Subscription.create(species: 'dog')
+			@subscription = Subscription.create(species: 'dog', gender: '')
 		end
 
-		it "will return matching conditions" do
+		it "returns matching conditions" do
 			Subscription.maybe(:species, 'dog').should include @subscription
 		end
 
-		it "will return nil conditions" do
+		it "returns nil conditions" do
 			Subscription.maybe(:color, 'brown').should include @subscription
+		end
+
+		it "returns empty string conditions" do
+			Subscription.maybe(:gender, 'male').should include @subscription
 		end
 
 		it "will not return non-matching conditions" do
@@ -34,7 +38,7 @@ describe Subscription do
 
 	describe '#should_email?' do 
 	
-		it "will return whether the subscription should be emailed" do
+		it "returns whether the subscription should be emailed" do
 			Subscription.new.should_email?.should be_false
 			Subscription.new(email: 'test@email.com').should_email?.should be_true
 		end
@@ -43,7 +47,7 @@ describe Subscription do
 
 	describe '#should_text?' do 
 	
-		it "will return whether the subscription should be emailed" do
+		it "returns whether the subscription should be emailed" do
 			Subscription.new.should_text?.should be_false
 			Subscription.new(phone: '123-456-7890').should_text?.should be_true
 		end

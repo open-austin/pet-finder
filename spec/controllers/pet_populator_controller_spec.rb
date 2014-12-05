@@ -52,7 +52,7 @@ describe PetPopulatorController, vcr: true do
 
 			it "will send out notifications for new pets" do
 				# puts ActionMailer::Base.deliveries.count
-				Subscription.create(email: 'test@email.com', species: 'dog')
+				Subscription.create(confirmed_at: Time.now, email: 'test@email.com', species: 'dog')
 				post :update, pets_string
 				ActionMailer::Base.deliveries.count.should eq 1
 			end

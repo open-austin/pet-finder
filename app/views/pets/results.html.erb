@@ -8,21 +8,21 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div id="modal-error"></div>
-          <%= form_for @subscription, url: { action: 'subscribe' }, html: { method: 'post' } do |f| %>
-          <%= f.hidden_field 'species' %>
-          <%= f.hidden_field 'gender' %>
-          <%= f.hidden_field 'found_since' %>
+          <%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
+            <%= f.hidden_field 'species' %>
+            <%= f.hidden_field 'gender' %>
+            <%= f.hidden_field 'found_since' %>
 
-          <div class='form-group'>
-            <%= f.label 'email' %>
-            <%= f.email_field 'email', class: 'form-control' %>
-          </div>
-          <div class='form-group'>
-            <%= f.label 'phone' %>
-            <%= f.phone_field 'phone', class: 'form-control' %>
-          </div>
+            <div class='form-group'>
+              <%= f.label 'email' %>
+              <%= f.email_field 'email', class: 'form-control' %>
+            </div>
+            <div class='form-group'>
+              <%= f.label 'phone' %>
+              <%= f.phone_field 'phone', class: 'form-control' %>
+            </div>
 
-          <%= f.submit "Subscribe", class: "btn btn-primary" %>
+            <%= f.submit "Subscribe", class: "btn btn-primary" %>
           <% end %> 
         </div>
       </div>

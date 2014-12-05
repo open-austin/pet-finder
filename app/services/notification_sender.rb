@@ -1,17 +1,18 @@
 class NotificationSender
 
-	def initialize(subscriptions)
+	def initialize(subscriptions, pet)
 		@subscriptions = subscriptions
+		@pet = pet
 	end
 
-	def self.matching(result)
+	def self.matching(pet)
 		subscriptions = Subscription
-			.maybe(:species, result.species)
-			.maybe(:gender, result.gender)
-			.maybe(:fixed, result.fixed)
-			.maybe(:color, result.color)
+			.confirmed
+			.where(species: pet.species)
+			.maybe(:gender, pet.gender)
+			.maybe(:color, pet.color)
 		
-		new(subscriptions)
+		new(subscriptions, pet)
 	end
 
 	def send_all
@@ -20,21 +21,17 @@ class NotificationSender
 	end
 
 	def send_emails
-		@subscriptions.each do |subscription|
-			send_email(subscription) if subscription.should_email?
-		end
+		@subscriptions.select(&:should_email?).each {|subscription| send_email(subscription)}
 	end
 
 	def send_texts
-		@subscriptions.each do |subscription|
-			send_text(subscription) if subscription.should_text?
-		end
+		@subscriptions.select(&:should_text?).each {|subscription| send_text(subscription)}
 	end
 
 	private
 
 	def send_email(subscription)
-		NotificationMailer.notify_email(subscription.contact).deliver
+		NotificationMailer.notification_email(subscription, @pet).deliver
 	end
 
 	def send_text(subscription)
@@ -44,7 +41,7 @@ class NotificationSender
     request = Net::HTTP::Get.new(uri.request_uri)
     request.basic_auth(ENV['PLIVO_AUTH_ID'],ENV['PLIVO_AUTH_TOKEN'])
     
-		request.set_form_data({"src" => ENV['PLIVO_NUMBER'], "dst" => subscription.contact.phone, "text" => "New Pet Found! (via PetFinder app)"})
+		request.set_form_data({"src" => ENV['PLIVO_NUMBER'], "dst" => subscription.contact.phone, "text" => "New Pet Found! (via PetAlerts app)"})
     response = http.request(request)
 	end
 
