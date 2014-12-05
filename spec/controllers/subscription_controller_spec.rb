@@ -2,21 +2,70 @@ require 'spec_helper'
 
 describe SubscriptionController do
 
+	describe "GET 'confirm'" do
+		
+		it "confirms the subscription on success" do
+			Subscription.create confirmation_code: '1234'
+			get :confirm, confirmation_code: '1234'
+			Subscription.first.should be_confirmed
+		end
+
+		it "flashes a success message on success" do
+			Subscription.create confirmation_code: '1234'
+			get :confirm, confirmation_code: '1234'
+			flash[:success].should eq 'You\'re alert is confirmed.'
+
+		end
+		
+		it "flashes an error with a bad confirmation code" do
+			Subscription.create confirmation_code: '1234'
+			get :confirm, confirmation_code: 'badcode'
+			Subscription.first.should_not be_confirmed
+			flash[:danger].should eq 'There was an error with your confirmation code.'
+		end
+
+	end
+
+	describe "POST 'confirm'" do
+		
+		it "confirms the subscription on success" do
+			Subscription.create confirmation_code: '1234'
+			post :confirm, confirmation_code: '1234'
+			Subscription.first.should be_confirmed
+		end
+
+		it "flashes a success message on success" do
+			Subscription.create confirmation_code: '1234'
+			post :confirm, confirmation_code: '1234'
+			flash[:success].should eq 'You\'re alert is confirmed.'
+
+		end
+		
+		it "flashes an error with a bad confirmation code" do
+			Subscription.create confirmation_code: '1234'
+			post :confirm, confirmation_code: 'badcode'
+			Subscription.first.should_not be_confirmed
+			flash[:danger].should eq 'There was an error with your confirmation code.'
+		end
+
+	end
+
 	describe "POST 'subscribe'" do
 
 		let (:subscription_params) { { subscription: { email: 'test@email.com', species: 'cat', gender: 'male', found_since: Date.new(2014).to_s } } } 
 			
-		it "will create a subscription" do
+		it "creates a subscription" do
 			post :subscribe, subscription_params
 			Subscription.count.should eq 1
+			Subscription.first.confirmation_code.should_not be_nil
 		end
 
-		it "will return a success message" do
+		it "returns a success message" do
 			response = post :subscribe, subscription_params
 			response.body['success'].should be_true
 		end
 
-		it "will send out a welcome email" do
+		it "sends out a subscription email" do
 			post :subscribe, subscription_params
 			ActionMailer::Base.deliveries.count.should eq 1
 		end
@@ -29,15 +78,41 @@ describe SubscriptionController do
 
 	end
 
+	describe "GET 'unsubscribe'" do 
+	
+		it "deletes the existing subscription by email" do
+			Subscription.create(email: 'test@email.com', phone: '123-456-7890')
+			get :unsubscribe, { email_or_phone: 'test@email.com' }
+			Subscription.all.should be_empty
+		end
+
+		it "deletes the existing subscription by phone" do
+			Subscription.create(email: 'test@email.com', phone: '123-456-7890')
+			get :unsubscribe, { email_or_phone: '123-456-7890' }
+			Subscription.all.should be_empty
+		end
+
+		it "will not delete non-matching subscriptions" do
+			Subscription.create(email: 'test1@email.com', phone: '123-456-7890')
+			Subscription.create(email: 'test2@email.com', phone: '123-456-7891')
+			Subscription.create(email: 'test3@email.com', phone: '123-456-7892')
+			get :unsubscribe, { email_or_phone: 'test@emaildifferent.com' }
+			Subscription.count.should eq 3
+			get :unsubscribe, { email_or_phone: '123-456-5432' }
+			Subscription.count.should eq 3
+		end
+	
+	end
+
 	describe "POST 'unsubscribe'" do 
 	
-		it "will delete the existing subscription by email" do
+		it "deletes the existing subscription by email" do
 			Subscription.create(email: 'test@email.com', phone: '123-456-7890')
 			post :unsubscribe, { email_or_phone: 'test@email.com' }
 			Subscription.all.should be_empty
 		end
 
-		it "will delete the existing subscription by phone" do
+		it "deletes the existing subscription by phone" do
 			Subscription.create(email: 'test@email.com', phone: '123-456-7890')
 			post :unsubscribe, { email_or_phone: '123-456-7890' }
 			Subscription.all.should be_empty
