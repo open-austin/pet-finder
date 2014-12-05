@@ -21,6 +21,7 @@ class SubscriptionController < ApplicationController
     subscription = Subscription.new(subscription_params)
     subscription.confirmation_code = SecureRandom.urlsafe_base64 8
     NotificationMailer.subscription_email(subscription).deliver if subscription.should_email?
+    SMS.send subscription.contact.phone, "To confirm your PetAlert, enter #{subscription.confirmation_code} at #{confirm_url}" if subscription.should_text?
     render json: { success: subscription.save }
   end
 
