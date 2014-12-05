@@ -57,15 +57,6 @@
     
     <footer>
       <p>Pet Alert, ATX Hack for Change <%= Time.new.year %></p>
-
-      <%= form_tag unsubscribe_path, id: 'unsubscribe-form' do %>
-        <div class="input-group input-group-sm">
-          <%= text_field_tag 'email_or_phone', '', class: 'form-control', placeholder: 'Email or phone' %>
-          <span class="input-group-btn">
-            <input class="btn btn-default" type="submit" value="Unsubscribe"/>
-          </span>
-        </div><!-- /input-group -->
-      <% end %>
     </footer>
 
   </div> <!-- /container -->

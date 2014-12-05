@@ -3,6 +3,8 @@ require 'securerandom'
 class SubscriptionController < ApplicationController
 
 	def confirm
+    return render 'confirm' unless params[:confirmation_code].present?
+
 		subscription = Subscription.find_by params.permit(:confirmation_code)
 	  if subscription.present?
       subscription.confirm!
@@ -23,10 +25,14 @@ class SubscriptionController < ApplicationController
   end
 
   def unsubscribe
+    return render 'unsubscribe' unless params[:email_or_phone].present?
+
     value = params[:email_or_phone]
     Subscription.where(email: value).destroy_all
     Subscription.where(phone: value).destroy_all
-    render json: { success: true }
+
+    flash[:success] = 'You\'re alert is removed.'
+    redirect_to root_url
   end
 
   private
