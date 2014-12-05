@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.1.3
 env:
-  - http_username=username http_password=password GMAIL_USERNAME=test@gmail.com GMAIL_PASSWORD=testpass aws_key=key aws_secret=sec s3_bucket=test
+  - http_username=username http_password=password GMAIL_USERNAME=test@gmail.com GMAIL_PASSWORD=testpass aws_key=key aws_secret=sec s3_bucket=test plivo_auth_id=test plivo_auth_token=test plivo_number=1234
