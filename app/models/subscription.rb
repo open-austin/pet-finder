@@ -5,7 +5,7 @@ class Subscription < ActiveRecord::Base
 	validates :phone, :'validators/phone' => true, if: :phone?
 
 	def email_or_phone_is_required
-    errors.add :base, "Email or phone are required." unless email? || phone?
+    errors.add :base, "Email or phone is required." unless email? || phone?
 	end
 
 	Contact = Struct.new(:email, :phone)

@@ -5,7 +5,7 @@ describe Subscription do
 	describe 'validations' do
 		
 		it 'requires an email address or phone number to validate' do
-			Subscription.create.errors.full_messages.first.should eq 'Email or phone are required.'
+			Subscription.create.errors.full_messages.first.should eq 'Email or phone is required.'
 			Subscription.create(email: 'test@email.com').errors.should be_empty
 			Subscription.create(phone: '555-555-5555').errors.should be_empty
 		end
