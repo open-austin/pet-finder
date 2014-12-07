@@ -35,14 +35,7 @@ class NotificationSender
 	end
 
 	def send_text(subscription)
-		uri = URI.parse("https://api.plivo.com/v1/Account/#{ENV['PLIVO_AUTH_ID']}/Message/")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    request = Net::HTTP::Get.new(uri.request_uri)
-    request.basic_auth(ENV['PLIVO_AUTH_ID'],ENV['PLIVO_AUTH_TOKEN'])
-    
-		request.set_form_data({"src" => ENV['PLIVO_NUMBER'], "dst" => subscription.contact.phone, "text" => "New Pet Found! (via PetAlerts app)"})
-    response = http.request(request)
+		SMS.send subscription.contact.phone, "We found a new match on PetAlerts: #{show_url @pet}"
 	end
 
 end

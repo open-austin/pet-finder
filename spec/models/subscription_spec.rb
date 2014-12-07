@@ -2,10 +2,32 @@ require 'spec_helper'
 
 describe Subscription do
 
+	describe 'validations' do
+		
+		it 'requires an email address or phone number to validate' do
+			Subscription.create.errors.full_messages.first.should eq 'Email or phone is required.'
+			Subscription.create(email: 'test@email.com').errors.should be_empty
+			Subscription.create(phone: '555-555-5555').errors.should be_empty
+		end
+
+		it 'requires a valid email address' do
+			Subscription.create(email: 'bademail').errors.full_messages.first.should eq 'Email is not an email address'
+		end
+
+		it 'requires a valid phone number' do
+			Subscription.create(phone: 'badphone').errors.full_messages.first.should eq 'Phone is not a phone number'
+			Subscription.create(phone: '123').errors.full_messages.first.should eq 'Phone is not a phone number'
+			Subscription.create(phone: '1234567890').errors.should be_empty
+			Subscription.create(phone: '123-456-7890').errors.should be_empty
+			Subscription.create(phone: '(123)456-7890').errors.should be_empty
+		end
+
+	end
+
 	describe '::maybe' do 
 	
 		before do
-			@subscription = Subscription.create(species: 'dog', gender: '')
+			@subscription = Subscription.create(email: 'test@email.com', species: 'dog', gender: '')
 		end
 
 		it "returns matching conditions" do
@@ -54,14 +76,23 @@ describe Subscription do
 	
 	end
 
+	describe '#as_params' do
+		
+		it "returns the non-blank values of a subscription that are used in result searches" do
+			subscription = Subscription.new(species: 'dog', gender: 'male', email: 'test@email.com', phone: '123-456-7890', fixed: false, color: 'brown')
+			subscription.as_params.should eq({ species: 'dog', gender: 'male', email: 'test@email.com', phone: '123-456-7890' })
+		end
+
+	end
+
 	describe 'confirmation' do
 
 		describe 'scopes' do
 
 			before do
-				@sub1 = Subscription.create(confirmed_at: Time.now)
-				@sub2 = Subscription.create()
-				@sub3 = Subscription.create(confirmed_at: Time.now)
+				@sub1 = Subscription.create email: 'test@email.com', confirmed_at: Time.now
+				@sub2 = Subscription.create email: 'test@email.com'
+				@sub3 = Subscription.create email: 'test@email.com', confirmed_at: Time.now
 			end
 
 			it "returns confirmed subscriptions" do

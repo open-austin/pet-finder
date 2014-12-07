@@ -49,7 +49,7 @@
 
     <% [ :success, :danger, :info ].each do |msg_type| %>
       <% if flash[msg_type] %>
-        <div class="alert alert-<%= msg_type %>" role="alert"><%= flash[msg_type] %></div>
+        <div class="alert alert-<%= msg_type %>" role="alert"><%= raw flash[msg_type] %></div>
       <% end %>
     <% end %>
 

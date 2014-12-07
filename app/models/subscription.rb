@@ -1,5 +1,13 @@
 class Subscription < ActiveRecord::Base
 
+	validate :email_or_phone_is_required
+	validates :email, :'validators/email' => true, if: :email?
+	validates :phone, :'validators/phone' => true, if: :phone?
+
+	def email_or_phone_is_required
+    errors.add :base, "Email or phone is required." unless email? || phone?
+	end
+
 	Contact = Struct.new(:email, :phone)
 
 	scope :confirmed, -> { where.not(confirmed_at: nil) }
@@ -11,20 +19,27 @@ class Subscription < ActiveRecord::Base
 	end
 
 	def should_email?
-		email.present?
+		email?
 	end
 
 	def should_text?
-		phone.present?
+		phone?
 	end
 
 	def confirmed?
-		confirmed_at.present?
+		confirmed_at?
 	end
 
 	def confirm!
 		self.confirmation_code = nil
 		self.confirmed_at = Time.now
+	end
+
+	def as_params
+		[:species, :gender, :found_since, :email, :phone].reduce({}) {|hash, current|
+			hash[current] = self[current] unless self[current].blank?		
+			hash
+		}
 	end
 
 end
