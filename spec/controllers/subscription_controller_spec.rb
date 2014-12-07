@@ -21,7 +21,7 @@ describe SubscriptionController do
 			Subscription.create email: 'test@email.com', confirmation_code: '1234'
 			get :confirm, confirmation_code: 'badcode'
 			Subscription.first.should_not be_confirmed
-			flash[:danger].should eq 'There was an error with your confirmation code.'
+			flash[:danger].should eq 'We couldn\'t find that confirmation code.'
 		end
 
 	end
@@ -45,7 +45,7 @@ describe SubscriptionController do
 			Subscription.create email: 'test@email.com', confirmation_code: '1234'
 			post :confirm, confirmation_code: 'badcode'
 			Subscription.first.should_not be_confirmed
-			flash[:danger].should eq 'There was an error with your confirmation code.'
+			flash[:danger].should eq 'We couldn\'t find that confirmation code.'
 		end
 
 	end
@@ -63,7 +63,7 @@ describe SubscriptionController do
 		it "redirects back to the results page" do
 			response = post :subscribe, subscription_params 
 			response.should redirect_to results_url(subscription_params)
-			flash[:success].should eq 'We\'ve sent you a confirmation code to confirm your alerts.'
+			flash[:success].should eq 'We\'ve sent you a confirmation code to confirm your alerts. <a href="http://test.host/confirm">Click here</a> to confirm'
 		end
 
 		it "sends out a subscription email" do
