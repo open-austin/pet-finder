@@ -1,4 +1,12 @@
-<%= link_to "Previous", :back, class: "btn btn-info btn xs" %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %> (map)</a></h3>
+  </div>
+  <p class="panel-body">
+    For further information on this pet, contact the animal shelter and
+    reference pet identifier '<%= @pet.pet_id %>'.
+  </p>
+</div>
 
 <div class="container-fluid">
   <div class="row">
@@ -9,8 +17,6 @@
           <p>Breed guess: <%= @pet.breed %></p>
           <p>Color: <%= @pet.color %></p>
           <p>Found: <%= @pet.found_on %></p>
-          <p>Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a></p>
-          
         </div>
         <img src="<%= @pet.image %>"/>
       </div>
