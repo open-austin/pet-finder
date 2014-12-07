@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1>Thanks for using PetAlerts</h1>
+  
+    <p>
+      To confirm your alert, please <a href="<%= confirm_url confirmation_code: @subscription.confirmation_code, redirect: results_url(subscription: @subscription.as_params) %>">confirm your email address</a>. To unsubscribe, <a href="<%= unsubscribe_url email_or_phone: @subscription.email %>">click here</a>.
+    </p>
+
+    
+    <h2>Your search:</h2>
+ 
+    <ul>
+      <li>Species: <%= @subscription.species %></li>
+      <li>Gender: <%= @subscription.gender || 'N/A' %></li>
+      <li>Date lost: <%= @subscription.found_since || 'N/A' %></li>
+    </ul>
+
+
+    <h2>A message from PetAlerts</h2>
+
+    <p>
+      Thank you for using PetAlerts to find your furry friend! Our mission is to unite pets and their owners by delivering current information on local animal shelter intakes.
+    </p> 
+
+    <p>
+      We hope our service will be of help to you and your family. You will receive an email notification each time an animal intake matches your search criteria. If you believe an animal featured in a notification may be your pet, we encourage you to contact the appropriate shelter to reclaim your pet. All unclaimed pets must be housed by shelters for the first 72 hours after intake, but after that all animals become open for adoption to the public.
+    </p>
+
+    <p>We're already looking.</p> 
+    <p>The PetAlerts Team</p>
+  </body>
+</html>

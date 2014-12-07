@@ -1,0 +1,12 @@
+<%= form_tag url: confirm_url do %>
+
+  <div class='form-group'>
+    <%= label_tag :confirmation_code  %>
+    <%= text_field_tag :confirmation_code, '', class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Submit", class: "btn btn-success btn-lg btn-block" %>
+  </div>
+
+<% end %>

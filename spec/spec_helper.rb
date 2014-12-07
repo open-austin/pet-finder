@@ -23,6 +23,8 @@ RSpec.configure do |config|
 
   config.before(:each) do
     ActionMailer::Base.deliveries.clear
+    SMS.stub(:send)
+    SMS.any_instance.stub(:send)
   end
 
   # ## Mock Framework

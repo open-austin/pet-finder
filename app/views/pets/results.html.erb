@@ -2,31 +2,33 @@
   <div class="results-header centered">
 
     <p><%= @description %></p>
-    <button class="btn btn-primary" data-toggle="modal" data-target=".subscription-modal">Subscribe to this Feed</button>
 
-    <div class="modal fade subscription-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div id="modal-error"></div>
-          <%= form_for @subscription, url: { action: 'subscribe' }, html: { method: 'post' } do |f| %>
-          <%= f.hidden_field 'species' %>
-          <%= f.hidden_field 'gender' %>
-          <%= f.hidden_field 'found_since' %>
-
-          <div class='form-group'>
-            <%= f.label 'email' %>
-            <%= f.email_field 'email', class: 'form-control' %>
-          </div>
-          <div class='form-group'>
-            <%= f.label 'phone' %>
-            <%= f.phone_field 'phone', class: 'form-control' %>
-          </div>
-
-          <%= f.submit "Subscribe", class: "btn btn-primary" %>
-          <% end %> 
-        </div>
+    <%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
+      <div class='form-group col-xs-4'>
+        <%= f.label 'species' %>
+        <%= f.text_field 'species', class: 'form-control', readonly: true %>
       </div>
-    </div>
+      <div class='form-group col-xs-4'>
+        <%= f.label 'gender' %>
+        <%= f.text_field 'gender', class: 'form-control', readonly: true %>
+      </div>
+      <div class='form-group col-xs-4'>
+        <%= f.label 'found_since' %>
+        <%= f.text_field 'found_since', class: 'form-control', readonly: true %>
+      </div>
+
+      <div class='form-group col-xs-6'>
+        <%= f.label 'email' %>
+        <%= f.email_field 'email', class: 'form-control' %>
+      </div>
+      <div class='form-group col-xs-6'>
+        <%= f.label 'phone', 'Phone (US only)' %>
+        <%= f.phone_field 'phone', class: 'form-control', placeholder: '555-555-5555' %>
+      </div>
+
+      <%= f.submit "Subscribe to this Feed", class: "btn btn-primary" %>
+    <% end %> 
+
   </div>
   <div class="results-grid"> 
     <table class="table table-responsive">
