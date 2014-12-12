@@ -1,8 +1,8 @@
 Name:         Pet Alerts
 Description:  An email and SMS alert service to help pet owners quickly find lost pets.
-Access_at:    pet-alerts.open-austin.org
+Access_at:    http://pet-alerts.open-austin.org/
 Project_at:   https://github.com/open-austin/pet-finder
 Type:         web application
 Status:       beta
 Contact:      Tim Shelburne <shelburt02@gmail.com>
-Categories:   [ lost pets, notifications, austin, animal shelter ]
+Categories:   [ lost pets, notifications, animal shelter, animal services ]
