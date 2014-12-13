@@ -16,7 +16,7 @@
           <h4><%= "#{@pet.gender} #{@pet.species}".titleize %></h4>
           <p>Breed guess: <%= @pet.breed %></p>
           <p>Color: <%= @pet.color %></p>
-          <p>Found: <%= @pet.found_on %></p>
+          <p>Found: <%= @pet.found_on.strftime("%B %d, %Y") %></p>
         </div>
         <img src="<%= @pet.image %>"/>
       </div>
