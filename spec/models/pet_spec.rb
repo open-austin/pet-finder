@@ -20,6 +20,20 @@ describe Pet do
 	
 	end
 
+	describe '::imageless' do
+		
+		before do
+			@pet1 = Pet.create image: Pet::DEFAULT_IMG
+			@pet2 = Pet.create image: 'actual-image'
+			@pet3 = Pet.create image: Pet::DEFAULT_IMG
+		end
+
+		it "returns pets with the default image" do
+			Pet.imageless.should =~ [ @pet1, @pet3 ]
+		end
+
+	end
+
 	describe '::type' do
 		
 		before do

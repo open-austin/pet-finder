@@ -1,9 +1,12 @@
 class Pet < ActiveRecord::Base
   include TimeScopable
 
+  DEFAULT_IMG = 'https://pet-alert-dev.s3.amazonaws.com/_default/pet-avatar.png'
+
   belongs_to :shelter
 
   scope :active, -> { where(active: true) }
+  scope :imageless, -> { where(image: DEFAULT_IMG) }
   scope :type, ->(species) { where species: species }
   scope :maybe, ->(prop, value) { where(prop => value) unless value.nil? }
   scope :found_since, ->(date) { where("found_on > ?", date.midnight) unless date.nil? }
@@ -24,6 +27,10 @@ class Pet < ActiveRecord::Base
 
   def active?
     active
+  end
+
+  def has_image?
+    image != DEFAULT_IMG
   end
 
   def found_days_ago

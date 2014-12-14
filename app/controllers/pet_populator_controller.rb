@@ -24,6 +24,19 @@ class PetPopulatorController < ApplicationController
   	render nothing: true
   end
 
+  def pets_without_images
+    render json: Pet.active.imageless.map {|pet| {id: pet.id, remote_id: pet.pet_id}}
+  end
+
+  def reconcile_image
+    pet = Pet.find(params[:id])
+    unless pet.has_image?
+      pet.image = ImageRepository.store params[:image], pet.pet_id
+      pet.save if pet.has_image?
+    end
+    render nothing: true
+  end
+
   private
 
   def pets_params
