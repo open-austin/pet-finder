@@ -1,7 +1,7 @@
 class Pet < ActiveRecord::Base
   include TimeScopable
 
-  DEFAULT_IMG = 'https://pet-alert-dev.s3.amazonaws.com/_default/pet-avatar.png'
+  DEFAULT_IMG = "https://#{Figaro.env.s3_bucket}.s3.amazonaws.com/_default/pet-avatar.png"
 
   belongs_to :shelter
 
