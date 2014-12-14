@@ -21,6 +21,10 @@ describe PetPopulatorController, vcr: true do
 			}
 		end
 
+		before do
+			Sidekiq::Testing.inline!
+		end
+
 		it "will reject unauthenticated requests" do
 			post :update, pets_string
 			expect(response).to_not be_success
