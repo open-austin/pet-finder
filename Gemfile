@@ -21,6 +21,7 @@ gem 'figaro'
 gem 'plivo'
 gem 'aws-sdk', '~> 1.0'
 gem 'will_paginate', '~> 3.0.5'
+gem 'sidekiq'
 
 gem 'vcr', group: :test
 gem 'webmock', group: :test
