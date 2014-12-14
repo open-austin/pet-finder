@@ -54,6 +54,10 @@ describe SubscriptionController do
 
 		let (:subscription_params) { { subscription: { email: 'test@email.com', species: 'cat', gender: 'male', found_since: Date.new(2014).to_s } } } 
 			
+		before do
+			Sidekiq::Testing.inline!
+		end
+
 		it "creates a subscription" do
 			post :subscribe, subscription_params
 			Subscription.count.should eq 1
