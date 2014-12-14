@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   post 'populator/update', to: 'pet_populator#update', as: 'populate'
   post 'populator/reconcile', to: 'pet_populator#reconcile', as: 'reconcile'
+  get 'pets/without-images', to: 'pet_populator#pets_without_images'
+  post 'pet/:id/reconcile-image', to: 'pet_populator#reconcile_image'
   
   get 'search', to: 'pets#search', as: 'search'
   get 'results', to: 'pets#results', as: 'results'
