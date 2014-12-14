@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
+require 'sidekiq/testing'
 
 VCR.configure do |c|
   c.configure_rspec_metadata!

@@ -10,7 +10,7 @@ class PetPopulatorController < ApplicationController
       
       pet = Pet.from_hash(pet_hash)
       pet.save
-      NotificationSender.matching(pet).send_all
+      Notifier.perform_async(pet.id)
     end
   	render nothing: true
   end
