@@ -6,7 +6,7 @@ class SubscriptionController < ApplicationController
     subscription = Subscription.new(subscription_params)
     subscription.confirmation_code = SecureRandom.urlsafe_base64 4
     if subscription.save
-      NotificationMailer.subscription_email(subscription).deliver if subscription.should_email?
+      NotificationMailer.delay.subscription_email(subscription) if subscription.should_email?
       SMS.send "1#{subscription.contact.phone}", "Your PetAlerts subscription code is: #{subscription.confirmation_code}" if subscription.should_text?
       
       confirm_link = ActionController::Base.helpers.link_to('Click here', confirm_url)
