@@ -11,19 +11,14 @@
  * file per style scope.
  *
  *= require jquery.ui.datepicker
- *= require_tree .
  *= require_self
  */
 
- .logo { max-height: 150px; }
+@import 'bootstrap';
 
- a:hover { background: none; }
+@import 'base/global';
 
- .centered {
- 	text-align: center;
- }
+@import 'layouts/layout';
 
- .pet-image {
- 	max-width: 200px;
- 	max-height: 200px;
- }
+@import 'pages/results';
+@import 'pages/main';

@@ -1,0 +1,9 @@
+.alerts-signup {
+  @extend .panel;
+  @extend .panel-info;
+  
+  .panel-title {
+    @extend .panel-heading;
+    @extend .panel-title;
+  }
+}
