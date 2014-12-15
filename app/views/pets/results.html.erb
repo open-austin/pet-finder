@@ -1,6 +1,6 @@
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<h3 class="panel-title">Get Alerts for this Search</h3>
+		<h3 class="panel-title">Sign up for PetAlerts for this Search</h3>
 	</div>
 	<div class="panel-body">
 		<p>
@@ -22,11 +22,11 @@
 		</div>
 
 		<div class='form-group col-xs-6'>
-			<%= f.label 'email' %>
-			<%= f.email_field 'email', class: 'form-control' %>
+			<%= f.label 'Sign up for email alerts' %>
+			<%= f.email_field 'email', class: 'form-control', placeholder: 'you@example.com'  %>
 		</div>
 		<div class='form-group col-xs-6'>
-			<%= f.label 'phone', 'Phone (US only)' %>
+			<%= f.label 'phone', 'Sign up for text message alerts (US only)' %>
 			<%= f.phone_field 'phone', class: 'form-control', placeholder: '555-555-5555' %>
 		</div>
 
