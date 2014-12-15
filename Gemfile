@@ -16,6 +16,7 @@ gem 'rspec-rails', group: [ :development, :test ]
 
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
+gem 'unicorn', group: :production
 
 gem 'figaro'
 gem 'plivo'
