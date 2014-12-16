@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
-  $('#subscription_found_since').datepicker()
+  $('#subscription_found_since').datepicker({maxDate: new Date});
 
   $('.pet-icon').click(->
   	# mark icon active
