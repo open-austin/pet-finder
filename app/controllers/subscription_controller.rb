@@ -5,7 +5,7 @@ class SubscriptionController < ApplicationController
   def subscribe
     subscription = Subscription.new(subscription_params)
     subscription.confirmation_code = SecureRandom.urlsafe_base64 4
-    subscription.phone = subscription.phone.gsub /[^\d]+/, ""
+    subscription.phone = subscription.phone.gsub /[^\d]+/, "" if subscription.phone.present?
     if subscription.save
       NotificationMailer.delay.subscription_email(subscription) if subscription.should_email?
       SMS.send subscription.phone, "Your PetAlerts subscription code is: #{subscription.confirmation_code}" if subscription.should_text?

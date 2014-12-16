@@ -76,7 +76,7 @@ describe SubscriptionController do
 		end
 
 		it "sends out a subscription text" do
-			SMS.should_receive(:send).with('11231231234', /Your PetAlerts subscription code is: /)
+			SMS.should_receive(:send).with('1231231234', /Your PetAlerts subscription code is: /)
 			post :subscribe, subscription: { phone: '1231231234' }
 		end
 
