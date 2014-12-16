@@ -5,9 +5,10 @@ class SubscriptionController < ApplicationController
   def subscribe
     subscription = Subscription.new(subscription_params)
     subscription.confirmation_code = SecureRandom.urlsafe_base64 4
+    subscription.phone = subscription.phone.gsub /[^\d]+/, ""
     if subscription.save
       NotificationMailer.delay.subscription_email(subscription) if subscription.should_email?
-      SMS.send "1#{subscription.contact.phone}", "Your PetAlerts subscription code is: #{subscription.confirmation_code}" if subscription.should_text?
+      SMS.send subscription.phone, "Your PetAlerts subscription code is: #{subscription.confirmation_code}" if subscription.should_text?
       
       confirm_link = ActionController::Base.helpers.link_to('Click here', confirm_url)
       flash[:success] = "We've sent you a confirmation code to confirm your alerts. #{confirm_link} to confirm"

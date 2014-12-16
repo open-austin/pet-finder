@@ -44,7 +44,7 @@ Notifications are being sent to subscribers via email and text message for any n
 
 ### Configuration
 
-We are using Figaro to manage secret configuration settings - all this means for you is that you should create an application.yml file in app/config that looks like the following:
+We are using Figaro to manage secret configuration settings - all this means for you is that you should create an application.yml file in config/ that looks like the following:
 
 ```
 GMAIL_USERNAME: [working gmail address]

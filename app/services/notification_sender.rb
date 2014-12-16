@@ -1,4 +1,5 @@
 class NotificationSender
+	include Rails.application.routes.url_helpers
 
 	def initialize(subscriptions, pet)
 		@subscriptions = subscriptions
