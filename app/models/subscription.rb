@@ -8,15 +8,9 @@ class Subscription < ActiveRecord::Base
     errors.add :base, "Email or phone is required." unless email? || phone?
 	end
 
-	Contact = Struct.new(:email, :phone)
-
 	scope :confirmed, -> { where.not(confirmed_at: nil) }
 	scope :unconfirmed, -> { where(confirmed_at: nil) }
 	scope :maybe, ->(prop, value) { where(prop => [ value, nil, '' ]) }
-
-	def contact
-		@contact ||= Contact.new(email, phone)
-	end
 
 	def should_email?
 		email?

@@ -1,4 +1,5 @@
 class NotificationSender
+	include Rails.application.routes.url_helpers
 
 	def initialize(subscriptions, pet)
 		@subscriptions = subscriptions
@@ -35,7 +36,7 @@ class NotificationSender
 	end
 
 	def send_text(subscription)
-		SMS.send subscription.contact.phone, "We found a new match on PetAlerts: #{show_url @pet}"
+		SMS.send subscription.phone, "We found a new match on PetAlerts: #{show_url @pet}"
 	end
 
 end

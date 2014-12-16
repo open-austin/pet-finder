@@ -48,16 +48,6 @@ describe Subscription do
 	
 	end
 
-	describe '#contact' do 
-	
-		it "will be populated with the subscription email and phone" do
-			subscription = described_class.new(email: 'test@email.com', phone: '123-456-7890')
-			subscription.contact.email.should eq 'test@email.com'
-			subscription.contact.phone.should eq '123-456-7890'
-		end
-	
-	end
-
 	describe '#should_email?' do 
 	
 		it "returns whether the subscription should be emailed" do
