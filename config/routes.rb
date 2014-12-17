@@ -14,5 +14,11 @@ Rails.application.routes.draw do
   post 'subscribe', to: 'subscription#subscribe', as: 'subscribe'
   match 'confirm', to: 'subscription#confirm', as: 'confirm', via: [ :get, :post ]
   match 'unsubscribe', to: 'subscription#unsubscribe', as: 'unsubscribe', via: [ :get, :post ]
+
+  require 'sidekiq/web'
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == Figaro.env.http_username && password == Figaro.env.http_password
+  end 
+  mount Sidekiq::Web => '/sidekiq'
   
 end

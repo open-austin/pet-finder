@@ -68,7 +68,7 @@ All emails are sent from a background service called Sidekiq that will be instal
 
 1. Install redis
 1. `$ redis-server`
-1. `$ bundle exec sidekiq`
+1. `$ bundle exec sidekiq -q notifier -q default`
 
 ### SMS services
 
