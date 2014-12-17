@@ -37,6 +37,20 @@
 <%= javascript_include_tag "application" %>
 
 </head>
+
+<header> 
+  <div class= "container">
+    <div class="row">
+     <div class="col-xs-12">
+      <a href="<%= root_path %>">
+        <%= image_tag 'logo.png', class: 'logo' %>
+      </a>
+    </div>  
+  </div>
+</div>
+
+</header>
+
 <body>
   <div class="container">
     <div class="row">
@@ -62,6 +76,12 @@
     </footer>
 
   </div> <!-- /container -->
+  <footer>
+    <div class= "container">
+      <p class = "centered">Pet Alert, ATX Hack for Change <%= Time.new.year %></p>
+    </div>
+  </footer>
+
 
 </body>
 </html>

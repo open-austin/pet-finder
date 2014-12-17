@@ -1,10 +1,14 @@
-.logo { max-height: 150px; }
+header {
+	background-color: $light-gray;
+}
+
+footer {
+	background-color: $light-gray;
+}
+
+.logo { max-height: 100px; }
 
 a:hover { background: none; }
-
-.centered {
-	text-align: center;
-}
 
 .pet-image {
 	max-width: 200px;
@@ -30,6 +34,7 @@ a:hover { background: none; }
 	background-image: (url("/images/cat.png"));
 	background-size: contain;
 	background-repeat:no-repeat;
+	background-position: center center;
 }
 
 .cat-icon.active {
@@ -38,9 +43,9 @@ a:hover { background: none; }
 
 .other-icon {
 	background-image: (url("/images/other.png"));
+	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-	background-size: contain;
 }
 
 .other-icon.active {

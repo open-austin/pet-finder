@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: $white;
+  color: $dark-gray;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -86,4 +86,8 @@ div {
       }
     }
   }
+}
+
+.centered {
+  text-align: center;
 }
