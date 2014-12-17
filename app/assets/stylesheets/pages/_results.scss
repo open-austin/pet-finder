@@ -1,9 +1,13 @@
-.alerts-signup {
-  @extend .panel;
-  @extend .panel-info;
-  
-  .panel-title {
-    @extend .panel-heading;
-    @extend .panel-title;
-  }
+.panel-card{
+	@extend .panel;
+	@extend .panel-info;
+	border:none;
+	border-radius: 2px;
+	box-shadow: 0px 0px 3px 2px $light-gray;
+
+	.panel-title {
+		@extend .panel-heading;
+		@extend .panel-title;
+		font-size: 1.7em;
+	}
 }

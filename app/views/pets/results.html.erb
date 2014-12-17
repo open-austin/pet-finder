@@ -1,4 +1,4 @@
-<div class="alerts-signup">
+<div class="panel-card">
 	<h3 class="panel-title">Get Alerts for this Search
 	</h3>
 	<div class="panel-body">
@@ -36,10 +36,8 @@
 
 <%= will_paginate @pets %>
 
-<div class="panel panel-success">
-	<div class="panel-heading">
+<div class="panel-card">
 		<h3 class="panel-title">Results</h3>
-	</div>
 	<div class="panel-body"> 
 		<table class="table table-responsive">
 			<% @pets.each do |pet| %>
