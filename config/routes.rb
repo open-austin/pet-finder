@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   post 'subscribe', to: 'subscription#subscribe', as: 'subscribe'
   match 'confirm', to: 'subscription#confirm', as: 'confirm', via: [ :get, :post ]
   match 'unsubscribe', to: 'subscription#unsubscribe', as: 'unsubscribe', via: [ :get, :post ]
+
+  require 'sidekiq/web'
+
+  mount Sidekiq::Web => '/sidekiq'
   
 end
