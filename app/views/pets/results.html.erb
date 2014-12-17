@@ -37,11 +37,11 @@
 <%= will_paginate @pets %>
 
 <div class="panel-card">
-		<h3 class="panel-title">Results</h3>
+	<h3 class="panel-title">Results</h3>
 	<div class="panel-body"> 
-		<table class="table table-responsive">
+		<table class="results-table">
 			<% @pets.each do |pet| %>
-			<tr>
+			<tr class= "result-each">
 				<td width="200px">
 					<%= link_to show_path(pet) do %>
 					<%= image_tag pet.image, class: 'pet-image' %>
