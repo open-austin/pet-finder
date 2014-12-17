@@ -1,12 +1,48 @@
 .logo { max-height: 150px; }
 
- a:hover { background: none; }
+a:hover { background: none; }
 
- .centered {
- 	text-align: center;
- }
+.centered {
+	text-align: center;
+}
 
- .pet-image {
- 	max-width: 200px;
- 	max-height: 200px;
- }
+.pet-image {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.pet-icon {
+	min-height: 200px;
+}
+
+.dog-icon {
+	background-image: (url("/images/dog.png"));
+	background-size: contain;
+	background-repeat:no-repeat;
+	background-position: center center;
+}
+
+.dog-icon.active {
+	background-image: (url("/images/dog-active.png"));
+}
+
+.cat-icon {
+	background-image: (url("/images/cat.png"));
+	background-size: contain;
+	background-repeat:no-repeat;
+}
+
+.cat-icon.active {
+	background-image: (url("/images/cat-active.png"));
+}
+
+.other-icon {
+	background-image: (url("/images/other.png"));
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+
+.other-icon.active {
+	background-image: (url("/images/other-active.png"));
+}
