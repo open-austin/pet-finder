@@ -8,7 +8,7 @@ before_fork do |server, worker|
   # if the worker process dies that we kill our master process, which will
   # automatically reboot the dyno
   # thanks to: https://coderwall.com/p/fprnhg/free-background-jobs-on-heroku#comment_6332
-  @sidekiq_pid ||= spawn("bundle exec sidekiq -c 2")
+  @sidekiq_pid ||= spawn("bundle exec sidekiq -c 2 -q notifier -q default")
 
   t = Thread.new {
     Process.wait @sidekiq_pid
