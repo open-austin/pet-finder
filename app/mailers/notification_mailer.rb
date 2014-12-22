@@ -8,6 +8,7 @@ class NotificationMailer < ActionMailer::Base
 
   def notification_email(subscription, pet)
     @pet = pet
+    @subscription = subscription
     mail(to: subscription.email, subject: 'PetAlerts Match: Is this your pet?')
   end
 end
