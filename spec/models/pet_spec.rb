@@ -96,7 +96,7 @@ describe Pet do
 
 			Pet.for_subscription(Subscription.new(species: 'cat')).should =~ [ @pet1, @pet3 ]
 			Pet.for_subscription(Subscription.new(species: 'cat', gender: 'female')).should =~ [ @pet3 ]
-			Pet.for_subscription(Subscription.new(species: 'dog', found_since: Time.now)).should =~ []
+			Pet.for_subscription(Subscription.new(species: 'dog', found_since: Time.now.utc)).should =~ []
 		end
 
 	end
