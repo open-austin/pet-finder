@@ -52,7 +52,7 @@
 				</td>
 				<td>
 					<h5>
-						<%= link_to show_path(pet) do %>
+						<%= link_to show_path(pet), class: 'btn-link' do %>
 						<%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %>
 						<% end %>
 					</h5>
