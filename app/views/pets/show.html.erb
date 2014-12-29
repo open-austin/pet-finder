@@ -8,7 +8,9 @@
   </p>
 </div>
 
-<%= link_to 'Return to Results', results_path(request.GET), class: 'btn btn-default' %>
+<% if @back_url.present? %>
+  <%= link_to 'Return to Results', @back_url, class: 'btn btn-default' %>
+<% end %>
 
 <div class="container-fluid">
   <div class="row">

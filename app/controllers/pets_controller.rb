@@ -10,6 +10,7 @@ class PetsController < ApplicationController
   end
 
   def show
+    @back_url = request.referrer if request.referrer.include? 'results'
     @pet = Pet.find(params[:id])
   end
 
