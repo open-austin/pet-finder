@@ -9,6 +9,11 @@
 
     <%= link_to show_url(@pet) do %>
       <img src="<%= @pet.image %>"/>
+      <% unless @pet.has_image? %>
+        <p>
+          Because this image is not yet available, we will send you a follow-up email when it becomes available.
+        </p>
+      <% end %>
     <% end %>
     
     <h4>

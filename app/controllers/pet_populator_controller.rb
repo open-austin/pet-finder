@@ -32,7 +32,10 @@ class PetPopulatorController < ApplicationController
     pet = Pet.find(params[:id])
     unless pet.has_image?
       pet.image = ImageRepository.store params[:image], pet.pet_id
-      pet.save if pet.has_image?
+      if pet.has_image?
+        pet.save
+        Notifier.perform_async(pet.id)
+      end
     end
     render nothing: true
   end
