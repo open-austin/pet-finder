@@ -1,4 +1,4 @@
-Pet Alert
+Pet Alerts
 ==========
 
 Part of [ATX Hack for Change 2014](http://atxhackforchange.org/)
