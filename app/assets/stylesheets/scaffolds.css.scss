@@ -66,3 +66,24 @@ div {
     list-style: square;
   }
 }
+
+.beta-span {
+  display:block;
+  text-align:center;
+
+  a{
+    text-decoration: none;
+
+    h4{
+      padding: .5em;
+      background-color: #fdd68b;
+      border-radius: 2px;
+      color: #333;
+      
+      &:hover { 
+        color: #222;
+        background-color: #f5bd6e;
+      }
+    }
+  }
+}
