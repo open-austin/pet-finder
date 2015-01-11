@@ -40,17 +40,19 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <a href="<%= root_path %>">
-          <%= image_tag 'pet-alerts-logo.png', class: 'logo' %>
-        </a>
-      </div>
+     <span class="beta-span col-xs-12">
+      <a href="http://goo.gl/forms/Wt7iMAaN8a"><h4>We're in Beta. Help us improve this app! Click here to submit your feedback.</h4></a>
+    </span>
+    <div class="col-xs-12">
+      <a href="<%= root_path %>">
+        <%= image_tag 'pet-alerts-logo.png', class: 'logo' %>
+      </a>
     </div>
 
     <% [ :success, :danger, :info ].each do |msg_type| %>
-      <% if flash[msg_type] %>
-        <div class="alert alert-<%= msg_type %>" role="alert"><%= raw flash[msg_type] %></div>
-      <% end %>
+    <% if flash[msg_type] %>
+    <div class="alert alert-<%= msg_type %>" role="alert"><%= raw flash[msg_type] %></div>
+    <% end %>
     <% end %>
 
     <%= yield %>
