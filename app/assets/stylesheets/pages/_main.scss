@@ -1,7 +1,7 @@
 header {
-	background-color: lighten($yellow, 17);
+	background-color: $light-yellow;
 	margin-bottom: 2em;
-	padding-bottom: 1em;
+	padding-bottom: 2em;
 }
 
 footer {
@@ -18,7 +18,17 @@ a:hover { background: none; }
 }
 
 .pet-icon {
-	min-height: 200px;
+	min-height: 120px;
+	margin-bottom: 1em;
+	box-shadow: 1px 1px 1px 1px $medium-gray;
+
+	@media (min-width: $largish) {
+		min-height: 200px;
+		background-color: #eee;
+		border: 1.5em solid white;
+		box-shadow: 1px 1px 1px 1px $medium-gray;
+	}
+
 	&:hover {
 		cursor: pointer;
 	}
@@ -33,6 +43,7 @@ a:hover { background: none; }
 
 .dog-icon.active {
 	background-image: (url("/images/dog-active.png"));
+	background-color:$light-yellow;
 }
 
 .cat-icon {
@@ -44,6 +55,7 @@ a:hover { background: none; }
 
 .cat-icon.active {
 	background-image: (url("/images/cat-active.png"));
+	background-color: $light-yellow;
 }
 
 .other-icon {
@@ -55,4 +67,5 @@ a:hover { background: none; }
 
 .other-icon.active {
 	background-image: (url("/images/other-active.png"));
+	background-color: $light-yellow;
 }
