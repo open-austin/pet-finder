@@ -39,19 +39,6 @@
 </head>
 
 <header> 
-  <div class= "container">
-    <div class="row">
-     <div class="col-xs-12">
-      <a href="<%= root_path %>">
-        <%= image_tag 'logo.png', class: 'logo' %>
-      </a>
-    </div>  
-  </div>
-</div>
-
-</header>
-
-<body>
   <div class="container">
     <div class="row">
      <span class="beta-span col-xs-12">
@@ -62,7 +49,12 @@
         <%= image_tag 'pet-alerts-logo.png', class: 'logo' %>
       </a>
     </div>
+  </div>
+</header>
 
+<body>
+ <div class="container">
+  <div class="row">
     <% [ :success, :danger, :info ].each do |msg_type| %>
     <% if flash[msg_type] %>
     <div class="alert alert-<%= msg_type %>" role="alert"><%= raw flash[msg_type] %></div>
@@ -70,17 +62,14 @@
     <% end %>
 
     <%= yield %>
-    
-    <footer>
-      <p>Pet Alerts, ATX Hack for Change <%= Time.new.year %></p>
-    </footer>
-
-  </div> <!-- /container -->
-  <footer>
-    <div class= "container">
-      <p class = "centered">Pet Alert, ATX Hack for Change <%= Time.new.year %></p>
-    </div>
-  </footer>
+  </div>
+  
+</div> <!-- /container -->
+<footer>
+  <div class= "container">
+    <p class = "centered">Pet Alert, ATX Hack for Change <%= Time.new.year %></p>
+  </div>
+</footer>
 
 
 </body>

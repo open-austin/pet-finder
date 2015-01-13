@@ -1,6 +1,7 @@
 header {
-	background-color: $light-gray;
+	background-color: lighten($yellow, 17);
 	margin-bottom: 2em;
+	padding-bottom: 1em;
 }
 
 footer {
@@ -18,6 +19,9 @@ a:hover { background: none; }
 
 .pet-icon {
 	min-height: 200px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .dog-icon {
