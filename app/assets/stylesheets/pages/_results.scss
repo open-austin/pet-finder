@@ -3,7 +3,6 @@
 	@extend .panel-info;
 	border:none;
 	border-radius: 2px;
-	box-shadow: 0px 0px 3px 2px $light-gray;
 
 	.panel-title {
 		@extend .panel-heading;
@@ -18,10 +17,9 @@
 	
 	img {
 		border-radius: 7px;
-		box-shadow: 0px 0px 2px 2px $light-gray;
 
 		&:hover {
-			box-shadow: 0px 0px 2px 2px $medium-gray;
+	
 		}
 	}	
 }

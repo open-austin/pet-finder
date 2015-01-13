@@ -66,7 +66,6 @@ div {
 }
 
 .beta-span {
-  display:block;
   text-align:center;
 
   a{
@@ -77,6 +76,10 @@ div {
       background-color: #fdd68b;
       border-radius: 2px;
       color: #333;
+      font-size: 1em;
+      @media (min-width: $largish) {
+        font-size: 1.2em;
+      }
       
       &:hover { 
         color: #222;

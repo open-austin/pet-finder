@@ -1,14 +1,31 @@
-header {
-	background-color: $light-yellow;
-	margin-bottom: 2em;
-	padding-bottom: 2em;
+header{
+
+}
+
+.header-container {
+	@extend .container;
+	background-image: (url("puppies3.jpg"));
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center right;
+	padding: 1em;
+
+	@media (min-width: $largish) {
+		background-position: top right;
+		padding: 2em;
+	}
 }
 
 footer {
 	background-color: $light-gray;
 }
 
-.logo { max-height: 100px; }
+.logo { 
+	max-height: 70px; 
+	@media (min-width: $largish) {
+		max-height: 100px;
+	}
+}
 
 a:hover { background: none; }
 

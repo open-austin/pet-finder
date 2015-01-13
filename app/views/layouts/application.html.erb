@@ -39,17 +39,18 @@
 </head>
 
 <header> 
-  <div class="container">
-    <div class="row">
-     <span class="beta-span col-xs-12">
-      <a href="http://goo.gl/forms/Wt7iMAaN8a"><h4>We're in Beta. Help us improve this app! Click here to submit your feedback.</h4></a>
-    </span>
+  <div class="beta-span">
+  <a href="http://goo.gl/forms/Wt7iMAaN8a"><h4>We're in Beta. Help us improve this app! Click here to submit your feedback.</h4></a>
+</div>
+<div class= "header-container">
+  <div class="row">
     <div class="col-xs-12">
       <a href="<%= root_path %>">
         <%= image_tag 'pet-alerts-logo.png', class: 'logo' %>
       </a>
     </div>
   </div>
+</div>
 </header>
 
 <body>
@@ -63,7 +64,7 @@
 
     <%= yield %>
   </div>
-  
+
 </div> <!-- /container -->
 <footer>
   <div class= "container">
