@@ -1,30 +1,56 @@
-header{
-
+header {
+	background-image: (url("puppies4.jpg"));
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center right;
 }
 
 .header-container {
 	@extend .container;
-	background-image: (url("puppies3.jpg"));
-	background-size: cover;
-	background-repeat:no-repeat;
-	background-position: center right;
 	padding: 1em;
 
 	@media (min-width: $largish) {
 		background-position: top right;
-		padding: 2em;
+		padding: 3em;
 	}
+}
+
+
+.main-form-first {
+	@extend .container;
+
 }
 
 footer {
 	background-color: $light-gray;
 }
 
-.logo { 
-	max-height: 70px; 
-	@media (min-width: $largish) {
-		max-height: 100px;
+
+.main-title {
+	text-align:center;
+	color: $white;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	max-width: 60%;
+	margin-left:auto;
+	margin-right:auto;
+	border: 3px solid white;
+	@media (min-width: $mediumish) {
+		max-width: 33%;
 	}
+}
+
+
+
+a.logo { 
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.logo-img {
+	max-height: 50px;
 }
 
 a:hover { background: none; }
@@ -60,7 +86,7 @@ a:hover { background: none; }
 
 .dog-icon.active {
 	background-image: (url("/images/dog-active.png"));
-	background-color:$light-yellow;
+	background-color: $powder-blue;
 }
 
 .cat-icon {
@@ -72,7 +98,7 @@ a:hover { background: none; }
 
 .cat-icon.active {
 	background-image: (url("/images/cat-active.png"));
-	background-color: $light-yellow;
+	background-color:  $powder-blue;
 }
 
 .other-icon {
@@ -84,5 +110,5 @@ a:hover { background: none; }
 
 .other-icon.active {
 	background-image: (url("/images/other-active.png"));
-	background-color: $light-yellow;
+	background-color:  $powder-blue;
 }
