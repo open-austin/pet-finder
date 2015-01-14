@@ -1,42 +1,49 @@
 <%= form_for @subscription, url: { action: 'results' }, html: { method: 'get', id: 'temp_new_subscription' } do |f| %>
-<div class="main-form-first centered">
-  <h2>I lost my...</h2>
-  <div class="row">
-    <div class="col-xs-4">
-      <div class='pet-icon dog-icon' data-species='dog'></div>
-    </div>
-    <div class="col-xs-4">
-      <div class='pet-icon cat-icon' data-species='cat'></div>
-    </div>
-    <div class="col-xs-4">
-      <div class='pet-icon other-icon' data-species='other'></div>
+<div class= "container">
+  <div class="main-form-first centered">
+    <h2>I lost my...</h2>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class='pet-icon dog-icon' data-species='dog'></div>
+      </div>
+      <div class="col-xs-4">
+        <div class='pet-icon cat-icon' data-species='cat'></div>
+      </div>
+      <div class="col-xs-4">
+        <div class='pet-icon other-icon' data-species='other'></div>
+      </div>
     </div>
   </div>
 </div>
+<div class= "second-form-background">
+  <div class= "container">
+    <div class="row">
+      <div class="collapse main-form-second" id="hidden-form">
+        <%= f.hidden_field 'species' %>
 
-<div class="collapse" id="hidden-form">
-  <%= f.hidden_field 'species' %>
+        <div class='form-group'>
+          <%= f.label :found_since, 'When?', class: 'invisible'  %>
+          <%= f.text_field :found_since, class: 'form-control', placeholder: 'When did you lose your pet?' %>
+        </div>
 
-  <div class='form-group'>
-    <%= f.label :found_since, 'When?', class: 'invisible'  %>
-    <%= f.text_field :found_since, class: 'form-control', placeholder: 'When did you lose your pet?' %>
-  </div>
+        <div class="form-group">
+          <div class="btn-group btn-group-justified" data-toggle="buttons">
+            <label class="btn btn-default">
+              <input type="radio" name="subscription[gender]" value="male"> Male
+            </label>
+            <label class="btn btn-default">
+              <input type="radio" name="subscription[gender]" value="female"> Female
+            </label>
+          </div>
+        </div>
 
-  <div class="form-group">
-    <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-default">
-        <input type="radio" name="subscription[gender]" value="male"> Male
-      </label>
-      <label class="btn btn-default">
-        <input type="radio" name="subscription[gender]" value="female"> Female
-      </label>
+        <div class="actions">
+          <%= f.submit "Search", disabled: true, class: "search-button" %>
+        </div>
+
+      </div>
     </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Search", disabled: true, class: "btn btn-success btn-lg btn-block" %>
-  </div>
-
 </div>
 
 <% end %>

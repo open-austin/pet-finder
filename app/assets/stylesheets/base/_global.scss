@@ -84,7 +84,7 @@ div {
       
       &:hover { 
         color: #222;
-        background-color: #f5bd6e;
+        background-color: $dark-yellow;
       }
     }
   }
@@ -92,4 +92,15 @@ div {
 
 .centered {
   text-align: center;
+}
+
+.search-button {
+  @extend .btn;
+  @extend .btn-lg;
+  @extend .btn-block;
+  background-color: $yellow;
+
+  &:hover {
+    background-color: $dark-yellow;
+  }
 }
