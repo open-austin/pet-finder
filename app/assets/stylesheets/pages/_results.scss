@@ -3,6 +3,7 @@
 	@extend .panel-info;
 	border:none;
 	border-radius: 2px;
+	background-color: $white;
 
 	.panel-title {
 		@extend .panel-heading;
@@ -25,7 +26,6 @@
 }
 
 .result-each {
-
 	h5 {
 		font-size: 1em;
 	}

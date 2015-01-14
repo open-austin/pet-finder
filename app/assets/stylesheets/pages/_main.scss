@@ -1,10 +1,3 @@
-header {
-	background-image: (url("puppies4.jpg"));
-	background-size: cover;
-	background-repeat:no-repeat;
-	background-position: center right;
-}
-
 .header-container {
 	@extend .container;
 	padding: 1em;
@@ -15,33 +8,12 @@ header {
 	}
 }
 
-
-.main-form-first {
-	@extend .col-xs-12;
-	@extend .col-md-10;
-	@extend .col-md-offset-1;
-
-}
-
-.main-form-second {
-	@extend .col-xs-10;
-	@extend .col-md-6;
-	@extend .col-xs-offset-1;
-	@extend .col-md-offset-3;
-	@extend .col-lg-8;
-	@extend .col-lg-offset-2;
-}
-
 .second-form-background {
+	display:block;
 	text-align:center;
 	background-color: #91b1be;
 	margin-top: 2em;
 }
-
-footer {
-	background-color: $light-gray;
-}
-
 
 .main-title {
 	text-align:center;

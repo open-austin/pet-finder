@@ -1,67 +1,77 @@
-<div class="panel-card">
-	<h3 class="panel-title">Get Alerts for this Search
-	</h3>
-	<div class="panel-body">
-		<p>
-			You can receive alerts by email or text message when a new pet is added that matches your search conditions. We will not share your contact information or spam you. You can cancel an alert any time by <%= link_to 'clicking here', unsubscribe_url %>.
-		</p>
+<div class= "container">
+	<div class=" main-form-first">
+		<div class="panel-card">
+			<h3 class="panel-title">Get Alerts for this Search
+			</h3>
+			<div class="panel-body">
+				<p>
+					You can receive alerts by email or text message when a new pet is added that matches your search conditions. We will not share your contact information or spam you. You can cancel an alert any time by <%= link_to 'clicking here', unsubscribe_url %>.
+				</p>
 
-		<%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
-		<div class='form-group col-xs-4'>
-			<%= f.label 'species' %>
-			<%= f.text_field 'species', class: 'form-control', readonly: true %>
-		</div>
-		<div class='form-group col-xs-4'>
-			<%= f.label 'gender' %>
-			<%= f.text_field 'gender', class: 'form-control', readonly: true %>
-		</div>
-		<div class='form-group col-xs-4'>
-			<%= f.label 'found_since' %>
-			<%= f.text_field 'found_since', class: 'form-control', readonly: true %>
-		</div>
+				<%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
+				<div class='form-group col-xs-4'>
+					<%= f.label 'species' %>
+					<%= f.text_field 'species', class: 'form-control', readonly: true %>
+				</div>
+				<div class='form-group col-xs-4'>
+					<%= f.label 'gender' %>
+					<%= f.text_field 'gender', class: 'form-control', readonly: true %>
+				</div>
+				<div class='form-group col-xs-4'>
+					<%= f.label 'found_since' %>
+					<%= f.text_field 'found_since', class: 'form-control', readonly: true %>
+				</div>
 
-		<div class='form-group col-xs-6'>
-			<%= f.label 'Sign up for email alerts' %>
-			<%= f.email_field 'email', class: 'form-control', placeholder: 'you@example.com'  %>
-		</div>
-		<div class='form-group col-xs-6'>
-			<%= f.label 'phone', 'Sign up for text message alerts (US only)' %>
-			<%= f.phone_field 'phone', class: 'form-control', placeholder: '555-555-5555' %>
-		</div>
+				<div class='form-group col-xs-6'>
+					<%= f.label 'Sign up for email alerts' %>
+					<%= f.email_field 'email', class: 'form-control', placeholder: 'you@example.com'  %>
+				</div>
+				<div class='form-group col-xs-6'>
+					<%= f.label 'phone', 'Sign up for text message alerts (US only)' %>
+					<%= f.phone_field 'phone', class: 'form-control', placeholder: '555-555-5555' %>
+				</div>
 
-		<%= f.submit "Submit", class: "btn btn-primary" %>
-		<% end %> 
+				<%= f.submit "Submit", class: "submit-button" %>
+				<% end %> 
+			</div>
+		</div>
 	</div>
 </div>
 
-<%= will_paginate @pets %>
-
-<div class="panel-card">
-	<h3 class="panel-title">Results</h3>
-	<div class="panel-body"> 
-		<table class="results-table">
-			<% @pets.each do |pet| %>
-			<tr class= "result-each">
-				<td width="200px">
-					<%= link_to show_path(pet) do %>
-					<%= image_tag pet.image, class: 'pet-image' %>
-					<% end %>
-				</td>
-				<td>
-					<h5>
-						<%= link_to show_path(pet), class: 'btn-link' do %>
-						<%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %>
+<div class= "second-form-background">
+	<div class= "container">
+	<div class ="main-form-second">
+	<%= will_paginate @pets %>
+	<div class="panel-card">
+		<h3 class="panel-title">Results</h3>
+		<div class="panel-body"> 
+			<table class="results-table">
+				<% @pets.each do |pet| %>
+				<tr class= "result-each">
+					<td width="200px">
+						<%= link_to show_path(pet) do %>
+						<%= image_tag pet.image, class: 'pet-image' %>
 						<% end %>
-					</h5>
-					<% unless pet.found_on.nil? %>
-					<p>Found <%= pluralize(pet.found_days_ago, 'day') %> ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
-					<% end %>
-					<p></p>
-				</td> 
-			</tr>
-			<% end %>
-		</table>
+					</td>
+					<td>
+						<h5>
+							<%= link_to show_path(pet), class: 'btn-link' do %>
+							<%= "#{pet.color} #{pet.gender} #{pet.breed}".titleize %>
+							<% end %>
+						</h5>
+						<% unless pet.found_on.nil? %>
+						<p>Found <%= pluralize(pet.found_days_ago, 'day') %> ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
+						<% end %>
+						<p></p>
+					</td> 
+				</tr>
+				<% end %>
+			</table>
+		</div>
 	</div>
+</div>
+</div>
 </div>
 
 <%= will_paginate @pets %>
+</div>

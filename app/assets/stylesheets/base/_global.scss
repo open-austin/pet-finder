@@ -1,7 +1,19 @@
+header {
+  background-image: (url("puppies4.jpg"));
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center right;
+}
+
 body {
   background-color: $white;
   color: $dark-gray;
   font-family: verdana, arial, helvetica, sans-serif;
+}
+
+footer {
+  display: block;
+  background-color: $light-gray;
 }
 
 p, ol, ul, td {
@@ -103,4 +115,8 @@ div {
   &:hover {
     background-color: $dark-yellow;
   }
+}
+
+.submit-button {
+  @extend .search-button;
 }
