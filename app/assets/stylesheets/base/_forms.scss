@@ -11,6 +11,7 @@
   @extend .btn-block;
   background-color: $yellow;
   color: darken($medium-blue, 33);
+  transition: all 0.2s ease 0s;
 
   &:hover {
     background-color: $dark-yellow;

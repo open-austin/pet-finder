@@ -30,10 +30,6 @@
 	@media (min-width: $largish) {
 		font-size: 1.9em;
 	}
-
-	&:hover {
-
-	}
 }
 
 a.logo { 
@@ -65,19 +61,18 @@ a:hover { background: none; }
 .pet-icon {
 	min-height: 120px;
 	margin-bottom: 1em;
-	box-shadow: 1px 1px 1px 1px $medium-blue;
-	border-radius: 2px;
+	box-shadow: 1px 1px 2px 1px darken($medium-blue, 17);
+	border-radius: 3px;
 
 	@media (min-width: $largish) {
 		min-height: 200px;
 		background-color: lighten($medium-blue, 29);
 		border: 1.5em solid white;
-		box-shadow: 1px 1px 1px 1px $medium-blue;
-
 	}
 
 	&:hover {
 		cursor: pointer;
+		box-shadow: 1px 1px 4px 1px darken($medium-blue, 27);
 	}
 }
 
