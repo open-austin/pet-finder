@@ -4,7 +4,6 @@
 	border:none;
 	border-radius: 2px;
 	background-color: $white;
-	margin-top: 1em;
 	@media (min-width: $mediumish) {
 		box-shadow: 1px 1px 1px 1px $medium-blue;
 	}
@@ -86,5 +85,41 @@
 .result-each {
 	h5 {
 		font-size: 1em;
+	}
+}
+
+.pagination {
+	@extend .col-xs-12;
+	@extend .col-xs-offset-3;
+	text-align: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-size: 1.1em;
+
+	.current {
+		color: darken($medium-blue, 22);
+		background-color: $yellow;
+		padding: .5em;
+		border-radius: 3px;
+	}
+
+	a {
+		text-decoration:none;
+		background-color: darken($medium-blue, 11) ;
+		padding: .3em;
+		border-radius: 3px;
+		color: $white;
+
+		&:hover {
+			color: lighten($powder-blue, 7);
+			background-color: darken($medium-blue, 22);
+			padding: .5em;
+			border-radius: 4px;
+			transition: all 0.2s ease 0s;
+		}
+
+		&:active {
+			color: $yellow;
+		}
 	}
 }

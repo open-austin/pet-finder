@@ -1,6 +1,6 @@
 <div class= "container">
-	<h3 class="call-to-action centered">Get Alerts for this Search
-	</h3>
+	<h2 class="call-to-action centered">Get Alerts for this Search
+	</h2>
 	<div class= "subscription-form">
 		<p class= "centered">
 			Receive alerts by email or text message when a new pet matching this search is posted.
@@ -41,9 +41,9 @@
 <div class= "second-form-background">
 	<div class= "container">
 		<div class ="main-form-second">
-			<%= will_paginate @pets %>
 			<div class="panel-card">
-				<h3 class="panel-title">Results</h3>
+				<h2 class="call-to-action centered">Search Results</h2>
+				<%= will_paginate @pets %>
 				<div class="panel-body"> 
 					<table class="results-table">
 						<% @pets.each do |pet| %>
@@ -67,11 +67,11 @@
 						</tr>
 						<% end %>
 					</table>
+<%= will_paginate @pets %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<%= will_paginate @pets %>
 </div>
