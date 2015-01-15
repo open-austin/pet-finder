@@ -9,18 +9,30 @@
 }
 
 .main-title {
-	text-align:center;
+	text-align: center;
 	color: $white;
 	padding-top: 1em;
 	padding-bottom: 1em;
-	max-width: 60%;
-	margin-left:auto;
-	margin-right:auto;
-	border: 3px solid white;
+	@extend .col-xs-6;
+	@extend .col-xs-offset-3;
+	border: 2px solid white;
 	border-radius: 2px;
+	transition: all 0.2s ease 0s;
+	@extend .col-md-4;
+	@extend .col-md-offset-4;
+	font-size: 1.3em;
 
 	@media (min-width: $mediumish) {
-		max-width: 33%;
+		font-size: 1.6em;
+		border: 3px solid white;
+	}
+
+	@media (min-width: $largish) {
+		font-size: 1.9em;
+	}
+
+	&:hover {
+
 	}
 }
 
