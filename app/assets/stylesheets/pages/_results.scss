@@ -69,9 +69,20 @@
 	}
 }
 
+.search-results-wrapper {
+	@extend .subscription-form;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.result-image {
+	max-width: 200px;
+}
+
 .results-table {
 	@extend .table;
 	@extend .table-responsive;
+	background-color: $white;
 	
 	img {
 		border-radius: 7px;
@@ -83,17 +94,39 @@
 }
 
 .result-each {
+	text-align: left;
+
+	a {
+		color: darken($medium-blue, 29);
+
+		&:hover {
+			color: darken($medium-blue, 11);
+			text-decoration: none;
+		}
+	}
 	h5 {
 		font-size: 1em;
+		padding-left: .5em;
+
+		@media (min-width: $mediumish) {
+			font-size: 1.4em;
+		}
+	}
+
+	p {
+		font-size: 1em;
+		padding-left: .5em;
+
+		@media (min-width: $mediumish) {
+			font-size: 1.2em;
+
+		}
 	}
 }
 
 .pagination {
 	@extend .col-xs-12;
-	@extend .col-xs-offset-3;
 	text-align: center;
-	padding-top: 1em;
-	padding-bottom: 1em;
 	font-size: 1.1em;
 
 	.current {

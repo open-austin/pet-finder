@@ -40,15 +40,13 @@
 
 <div class= "second-form-background">
 	<div class= "container">
-		<div class ="main-form-second">
-			<div class="panel-card">
+			<div class="search-results-wrapper">
 				<h2 class="call-to-action centered">Search Results</h2>
 				<%= will_paginate @pets %>
-				<div class="panel-body"> 
 					<table class="results-table">
 						<% @pets.each do |pet| %>
 						<tr class= "result-each">
-							<td width="200px">
+							<td class= "result-image">
 								<%= link_to show_path(pet) do %>
 								<%= image_tag pet.image, class: 'pet-image' %>
 								<% end %>
@@ -67,10 +65,8 @@
 						</tr>
 						<% end %>
 					</table>
-<%= will_paginate @pets %>
-				</div>
+					<%= will_paginate @pets %>
 			</div>
-		</div>
 	</div>
 </div>
 
