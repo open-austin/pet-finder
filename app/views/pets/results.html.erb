@@ -1,41 +1,39 @@
 <div class= "container">
+	<h3 class="call-to-action centered">Get Alerts for this Search
+	</h3>
 	<div class= "subscription-form">
-		<h3 class="call-to-action centered">Get Alerts for this Search
-		</h3>
-		<div class="subscription-body">
-			<p>
-				Receive alerts by email or text message when a new pet matching this search is posted.
-			</p>
+		<p class= "centered">
+			Receive alerts by email or text message when a new pet matching this search is posted.
+		</p>
 
-			<%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
+		<%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
 
-			<div class='subscription-readonly-input'>
-				<%= f.label 'species' %>
-				<%= f.text_field 'species', class: 'form-control', readonly: true, placeholder: 'view all' %>
-			</div>
-			<div class='subscription-readonly-input'>
-				<%= f.label 'gender' %>
-				<%= f.text_field 'gender', class: 'form-control', readonly: true, placeholder: 'view all' %>
-			</div>
-			<div class='subscription-readonly-input'>
-				<%= f.label 'found' %>
-				<%= f.text_field 'found_since', class: 'form-control', readonly: true, placeholder: 'view all' %>
-			</div>
-
-			<div class='subscription-input'>
-				<%= f.label 'Sign up for email alerts' %>
-				<%= f.email_field 'email', class: 'form-control', placeholder: 'you@example.com'  %>
-			</div>
-			<div class='subscription-input'>
-				<%= f.label 'phone', 'Sign up for text message alerts (US only)' %>
-				<%= f.phone_field 'phone', class: 'form-control', placeholder: '555-555-5555' %>
-			</div>
-
-			<%= f.submit "Submit", class: "submit-button" %>
-
-			<p class= "centered">You can cancel an alert any time by <%= link_to 'clicking here', unsubscribe_url %>.</p>
-			<% end %> 
+		<div class='subscription-readonly-input'>
+			<%= f.label 'species' %>
+			<%= f.text_field 'species', class: 'form-control', readonly: true, placeholder: 'view all' %>
 		</div>
+		<div class='subscription-readonly-input'>
+			<%= f.label 'gender' %>
+			<%= f.text_field 'gender', class: 'form-control', readonly: true, placeholder: 'view all' %>
+		</div>
+		<div class='subscription-readonly-input'>
+			<%= f.label 'found' %>
+			<%= f.text_field 'found_since', class: 'form-control', readonly: true, placeholder: 'view all' %>
+		</div>
+
+		<div class='subscription-input'>
+			<%= f.label 'Sign up for email alerts' %>
+			<%= f.email_field 'email', class: 'form-control', placeholder: 'you@example.com'  %>
+		</div>
+		<div class='subscription-input'>
+			<%= f.label 'phone', 'Sign up for text message alerts (US only)' %>
+			<%= f.phone_field 'phone', class: 'form-control', placeholder: '555-555-5555' %>
+		</div>
+
+		<%= f.submit "Submit", class: "submit-button" %>
+
+		<p class= "centered">Cancel an alert any time by <%= link_to 'clicking here', unsubscribe_url %>.</p>
+		<% end %> 
 	</div>
 </div>
 

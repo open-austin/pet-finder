@@ -7,7 +7,7 @@ header {
 
 body {
   background-color: $white;
-  color: $dark-gray;
+  color: darken($medium-blue, 33);
   font-family: verdana, arial, helvetica, sans-serif;
 }
 

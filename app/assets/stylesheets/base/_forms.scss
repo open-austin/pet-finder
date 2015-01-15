@@ -10,6 +10,7 @@
   @extend .btn-lg;
   @extend .btn-block;
   background-color: $yellow;
+  color: darken($medium-blue, 33);
 
   &:hover {
     background-color: $dark-yellow;

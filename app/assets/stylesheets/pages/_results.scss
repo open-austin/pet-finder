@@ -4,10 +4,10 @@
 	border:none;
 	border-radius: 2px;
 	background-color: $white;
-	border: 1.5em solid white;
-	box-shadow: 1px 1px 1px 1px $medium-gray;
 	margin-top: 1em;
-
+	@media (min-width: $mediumish) {
+		box-shadow: 1px 1px 1px 1px $medium-blue;
+	}
 	.subscription-title {
 		@extend .panel-heading;
 		@extend .panel-title;
@@ -19,19 +19,16 @@
 		}
 	}
 
-	.subscription-body {
-		@extend .panel-body;
-	}
-
 	.subscription-readonly-input {
 		@extend .form-group;
 		@extend .col-xs-4;
 		font-size: .9em;
-		border: 1px solid $medium-blue;
+		border: 3px solid $white;
 		border-radius: 4px;
+		background-color: lighten($medium-blue, 29);
 
 		.form-control {
-			background-color: $white;
+			background-color: lighten($medium-blue, 29);
 			@extend .input-sm;
 			border: none;
 			box-shadow: none;
@@ -49,7 +46,26 @@
 
 		.form-control {
 			@extend .form-control;
-			background-color: lighten($powder-blue, 3);
+			background-color: lighten($medium-blue, 29);
+			border-color: $powder-blue;
+			box-shadow: 1px 1px 2px 1px $medium-blue;
+			border: none;
+			&:active {
+				background-color: $yellow;
+				border:none;
+			}
+
+			&:focus {
+				box-shadow: 1px 1px 2px 1px $dark-yellow;
+				background-color: lighten($powder-blue, 7);
+				border: none;
+			}
+
+			&:visited {
+				border:none;
+				box-shadow: 1px 1px 2px 1px $dark-yellow;
+
+			}
 		}
 	}
 }
