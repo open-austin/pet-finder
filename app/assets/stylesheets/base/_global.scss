@@ -105,18 +105,3 @@ div {
 .centered {
   text-align: center;
 }
-
-.search-button {
-  @extend .btn;
-  @extend .btn-lg;
-  @extend .btn-block;
-  background-color: $yellow;
-
-  &:hover {
-    background-color: $dark-yellow;
-  }
-}
-
-.submit-button {
-  @extend .search-button;
-}

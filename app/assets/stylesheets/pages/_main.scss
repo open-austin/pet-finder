@@ -8,13 +8,6 @@
 	}
 }
 
-.second-form-background {
-	display:block;
-	text-align:center;
-	background-color: #91b1be;
-	margin-top: 2em;
-}
-
 .main-title {
 	text-align:center;
 	color: $white;
@@ -24,6 +17,8 @@
 	margin-left:auto;
 	margin-right:auto;
 	border: 3px solid white;
+	border-radius: 2px;
+
 	@media (min-width: $mediumish) {
 		max-width: 33%;
 	}
@@ -42,6 +37,14 @@ a.logo {
 
 a:hover { background: none; }
 
+.call-to-action {
+	color: $dark-blue;
+	font-size: 1.1em;
+	@media (min-width: $largish) {
+		font-size: 1.5em;
+	}
+}
+
 .pet-image {
 	max-width: 200px;
 	max-height: 200px;
@@ -50,13 +53,15 @@ a:hover { background: none; }
 .pet-icon {
 	min-height: 120px;
 	margin-bottom: 1em;
-	box-shadow: 1px 1px 1px 1px $medium-gray;
+	box-shadow: 1px 1px 1px 1px $medium-blue;
+	border-radius: 2px;
 
 	@media (min-width: $largish) {
 		min-height: 200px;
-		background-color: #eee;
+		background-color: lighten($medium-blue, 29);
 		border: 1.5em solid white;
-		box-shadow: 1px 1px 1px 1px $medium-gray;
+		box-shadow: 1px 1px 1px 1px $medium-blue;
+
 	}
 
 	&:hover {

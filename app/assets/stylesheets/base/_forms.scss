@@ -1,0 +1,26 @@
+.second-form-background {
+  display:block;
+  text-align:center;
+  background-color: $medium-blue;
+  margin-top: 2em;
+}
+
+.search-button {
+  @extend .btn;
+  @extend .btn-lg;
+  @extend .btn-block;
+  background-color: $yellow;
+
+  &:hover {
+    background-color: $dark-yellow;
+  }
+}
+
+.submit-button {
+  @extend .search-button;
+}
+
+.subscription-form {
+  @extend .main-form-first;
+
+}
