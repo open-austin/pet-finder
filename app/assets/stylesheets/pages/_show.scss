@@ -1,0 +1,38 @@
+.show-single-result {
+	@extend .main-form-first;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: $white;
+
+	h4 {
+		font-size: 1.4em;
+	}
+}
+
+.pet-id-number {
+	color: darken($medium-blue, 32);
+	background-color: $yellow;
+	padding: .5em;
+	border-radius: 3px;
+	font-size: 1em;
+}
+
+.pet-current-location {
+	@extend .call-to-action;
+	padding: 1em;
+}
+
+.show-single-result-copy {
+	text-align: left;
+	@extend .col-xs-10;
+	@extend .col-xs-offset-1;
+	font-size: .9em;
+	
+}
+
+.pet-id-number-highlight {
+	background-color: $yellow;
+	display: inline;
+	padding-bottom: .5em;
+
+}

@@ -1,29 +1,32 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %> (map)</a></h3>
+<div class="container">
+  <div class = "main-form-first">
+    <div class="centered">
+      <h3 class="pet-current-location">Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %> (map)</a></h3>
+      <p class= "pet-id-number">
+        Contact the animal shelter directly for further information on this pet and
+        reference pet identifier '<%= @pet.pet_id %>'.
+      </p>
+
+      <% if @back_url.present? %>
+      <%= link_to 'Return to Results', @back_url, class: 'btn btn-default' %>
+      <% end %>
+    </div>
   </div>
-  <p class="panel-body">
-    For further information on this pet, contact the animal shelter and
-    reference pet identifier '<%= @pet.pet_id %>'.
-  </p>
 </div>
 
-<% if @back_url.present? %>
-  <%= link_to 'Return to Results', @back_url, class: 'btn btn-default' %>
-<% end %>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class=".col-xs-12 .col-sm-6 .col-md-8">
-      <div class="thumbnail">
-        <div class="caption">
-          <h4><%= "#{@pet.gender} #{@pet.species}".titleize %></h4>
-          <p>Breed guess: <%= @pet.breed %></p>
-          <p>Color: <%= @pet.color %></p>
-          <p>Found: <%= @pet.found_on.strftime("%B %d, %Y") %></p>
-        </div>
-        <img src="<%= @pet.image %>"/>
+<div class= "second-form-background">
+  <div class="container">
+    <div class= "main-form-first">
+      <div class="show-single-result">
+       <div class="show-single-result-copy">
+        <h4><%= "#{@pet.gender} #{@pet.species}".titleize %></h4>
+        <p>Found: <%= @pet.found_on.strftime("%B %d, %Y") %></p>
+        <p>Breed guess: <%= @pet.breed %></p>
+        <p>Color: <%= @pet.color %></p>
+        <p class= "pet-id-number-highlight">Pet Identifier:  '<%= @pet.pet_id %>'</p>
       </div>
-    </div>          
-  </div>
+      <img src="<%= @pet.image %>" class= "responsive-pet-image"/>
+    </div>
+  </div>          
+</div>
 </div>

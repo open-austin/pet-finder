@@ -14,3 +14,10 @@
 	@extend .col-lg-8;
 	@extend .col-lg-offset-2;
 }
+
+.responsive-pet-image {
+	@extend .col-xs-10;
+	@extend .col-xs-offset-1;
+	@extend .pet-icon;
+	padding: 0em;
+}
