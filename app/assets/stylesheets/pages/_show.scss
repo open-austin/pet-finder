@@ -19,14 +19,16 @@
 
 .pet-current-location {
 	@extend .call-to-action;
-	padding: 1em;
+	padding-bottom: 1em;
 }
 
 .show-single-result-copy {
 	text-align: left;
 	@extend .col-xs-10;
-	@extend .col-xs-offset-1;
 	font-size: .9em;
+	border-left: 9px solid $powder-blue;
+	margin-top: .2em;
+	margin-bottom: .6em;
 	
 }
 

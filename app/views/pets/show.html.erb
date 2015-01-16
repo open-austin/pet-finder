@@ -2,7 +2,7 @@
   <div class = "wide-layout">
     <div class="centered">
       <div class="show-single-result">
-        <h3 class="pet-current-location">Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %> (map)</a></h3>
+        <h3 class="pet-current-location">Currently located at: <br> <a href="<%= @pet.shelter.map_link %>"><span class=" call-to-action glyphicon glyphicon-map-marker"></span><%= @pet.shelter %> (map)</a></h3>
         <p class= "pet-id-number">
           Contact the animal shelter directly for further information on this pet and
           reference pet identifier '<%= @pet.pet_id %>'.
