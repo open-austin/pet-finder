@@ -34,3 +34,10 @@
 .form-inline-layout {
 	display: inline;
 }
+
+.main-title-layout {
+	@extend .col-xs-6;
+	@extend .col-xs-offset-3;
+	@extend .col-md-4;
+	@extend .col-md-offset-4;
+}

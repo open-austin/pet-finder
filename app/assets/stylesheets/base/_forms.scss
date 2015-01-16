@@ -5,6 +5,15 @@
   margin-top: 2em;
 }
 
+.form-group {
+  margin-top: .5em;
+}
+
+.alert {
+  text-align: center;
+  font-size: 1.3em;
+}
+
 .search-button {
   @extend .btn;
   @extend .btn-lg;
@@ -27,10 +36,6 @@
 
 }
 
-.form-group {
-  margin-top: .5em;
-}
-
 .return-button {
   @extend .btn;
   @extend .btn-default;
@@ -45,7 +50,7 @@
   }
 }
 
-.alert {
-  text-align: center;
-  font-size: 1.3em;
+.unsubscribe-button {
+  @extend .search-button;
+  @extend .btn-sm;
 }

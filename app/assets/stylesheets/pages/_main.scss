@@ -9,17 +9,14 @@
 }
 
 .main-title {
+	@extend .main-title-layout;
 	text-align: center;
 	color: $white;
 	padding-top: 1em;
 	padding-bottom: 1em;
-	@extend .col-xs-6;
-	@extend .col-xs-offset-3;
 	border: 2px solid white;
 	border-radius: 2px;
 	transition: all 0.2s ease 0s;
-	@extend .col-md-4;
-	@extend .col-md-offset-4;
 	font-size: 1.3em;
 
 	@media (min-width: $mediumish) {
