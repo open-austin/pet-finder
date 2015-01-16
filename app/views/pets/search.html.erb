@@ -21,9 +21,10 @@
       <div class="collapse medium-layout" id="hidden-form">
         <%= f.hidden_field 'species' %>
 
-        <div class='form-group'>
-          <%= f.label :found_since, 'When?', class: 'invisible'  %>
-          <%= f.text_field :found_since, class: 'form-control', placeholder: 'When did you lose your pet?' %>
+        <div class='form-group has-feedback'>
+          <%= f.label :found_since, 'Select Date and Gender (optional)' %>
+          <%= f.text_field :found_since, class: 'form-control ', placeholder: 'When did you lose your pet?' %>
+          <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
         </div>
 
         <div class="form-group">

@@ -25,3 +25,12 @@
 	@extend .col-md-offset-1;
 	@extend .pet-icon;
 }
+
+.form-input-layout {
+	@extend .col-xs-12;
+	@extend .col-md-6;
+}
+
+.form-inline-layout {
+	display: inline;
+}
