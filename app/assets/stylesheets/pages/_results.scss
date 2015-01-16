@@ -1,70 +1,71 @@
 .subscription-form {
-	@extend .main-form-first;
+	@extend .wide-layout;
 	@extend .panel-info;
 	border:none;
+	margin-top: 1.5em;
 	border-radius: 2px;
 	background-color: $white;
 	@media (min-width: $mediumish) {
 		box-shadow: 1px 1px 1px 1px $medium-blue;
 	}
-	.subscription-title {
-		@extend .panel-heading;
-		@extend .panel-title;
-		font-size: 1.4em;
-		text-align: center;
-		background-color: white;
-		@media (min-width: $largish) {
-			font-size: 1.7em;
-		}
+}
+.subscription-title {
+	@extend .panel-heading;
+	@extend .panel-title;
+	font-size: 1.4em;
+	text-align: center;
+	background-color: white;
+	@media (min-width: $largish) {
+		font-size: 1.7em;
 	}
+}
 
-	.subscription-readonly-input {
-		@extend .form-group;
-		@extend .col-xs-4;
-		font-size: .9em;
-		border: 3px solid $white;
-		border-radius: 4px;
+.subscription-readonly-input {
+	@extend .form-group;
+	@extend .col-xs-4;
+	font-size: .9em;
+	border: 3px solid $white;
+	border-radius: 4px;
+	background-color: lighten($medium-blue, 29);
+
+	.form-control {
 		background-color: lighten($medium-blue, 29);
-
-		.form-control {
-			background-color: lighten($medium-blue, 29);
-			@extend .input-sm;
-			border: none;
-			box-shadow: none;
-			padding: 0em;
-			font-size: .9em;
-			cursor: default;
-		}
+		@extend .input-sm;
+		border: none;
+		box-shadow: none;
+		padding: 0em;
+		font-size: .9em;
+		cursor: default;
 	}
+}
 
-	.subscription-input {
-		@extend .form-group;
-		@extend .col-xs-12;
-		@extend .col-md-6;
-		padding: 3px;
+.subscription-input {
+	@extend .form-group;
+	@extend .col-xs-12;
+	@extend .col-md-6;
+	padding: 3px;
 
-		.form-control {
-			@extend .form-control;
-			background-color: lighten($medium-blue, 29);
-			border-color: $powder-blue;
-			box-shadow: 1px 1px 2px 1px $medium-blue;
+	.form-control {
+		@extend .form-control;
+		background-color: lighten($medium-blue, 29);
+		border-color: $powder-blue;
+		box-shadow: 1px 1px 2px 1px $medium-blue;
+		border: none;
+		&:active {
+			background-color: $yellow;
+			border:none;
+		}
+
+		&:focus {
+			box-shadow: 1px 1px 2px 1px $dark-yellow;
+			background-color: lighten($powder-blue, 7);
 			border: none;
-			&:active {
-				background-color: $yellow;
-				border:none;
-			}
+		}
 
-			&:focus {
-				box-shadow: 1px 1px 2px 1px $dark-yellow;
-				background-color: lighten($powder-blue, 7);
-				border: none;
-			}
+		&:visited {
+			border:none;
+			box-shadow: 1px 1px 2px 1px $dark-yellow;
 
-			&:visited {
-				border:none;
-				box-shadow: 1px 1px 2px 1px $dark-yellow;
-
-			}
 		}
 	}
 }

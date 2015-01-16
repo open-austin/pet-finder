@@ -1,6 +1,6 @@
 <%= form_for @subscription, url: { action: 'results' }, html: { method: 'get', id: 'temp_new_subscription' } do |f| %>
 <div class= "container">
-  <div class="main-form-first centered">
+  <div class="wide-layout centered">
     <h2 class="call-to-action">Search Austin Animal Shelters for:</h2>
     <div class="row">
       <div class="col-xs-4">
@@ -18,7 +18,7 @@
 <div class= "second-form-background">
   <div class= "container">
     <div class="row">
-      <div class="collapse main-form-second" id="hidden-form">
+      <div class="collapse medium-layout" id="hidden-form">
         <%= f.hidden_field 'species' %>
 
         <div class='form-group'>

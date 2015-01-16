@@ -1,5 +1,5 @@
 .show-single-result {
-	@extend .main-form-first;
+	@extend .show-layout;
 	margin-top: 1em;
 	margin-bottom: 1em;
 	background-color: $white;
@@ -35,4 +35,10 @@
 	display: inline;
 	padding-bottom: .5em;
 
+}
+
+.responsive-pet-icon {
+	@extend .responsive-image-layout;
+	@extend .pet-icon;
+	padding: 0em;
 }
