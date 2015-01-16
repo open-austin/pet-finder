@@ -8,11 +8,6 @@
           reference pet identifier '<%= @pet.pet_id %>'.
         </p>
 
-        <% if @back_url.present? %>
-        <%= link_to 'Return to Results', @back_url, class: 'btn btn-default' %>
-        <% end %>
-
-
         <div class="show-single-result-copy">
           <h4><%= "#{@pet.gender} #{@pet.species}".titleize %></h4>
           <p>Found: <%= @pet.found_on.strftime("%B %d, %Y") %></p>
@@ -20,8 +15,12 @@
           <p>Color: <%= @pet.color %></p>
         </div>
         <img src="<%= @pet.image %>" class= "responsive-pet-icon"/>
+
+        <% if @back_url.present? %>
+        <%= link_to 'Return to Results', @back_url, class: 'return-button' %>
+        <% end %>
+
       </div>
     </div>
   </div>          
-</div>
 </div>
