@@ -17,6 +17,7 @@
 		</div>
 		<div class='subscription-readonly-input'>
 			<%= f.label 'found', 'found:' %>
+			<%# subscription doesn't need this value as it only applies to future posts%>
 			<%= f.text_field 'found_since', class: 'form-control', readonly: true, disabled: true, placeholder: 'view all' %>
 		</div>
 

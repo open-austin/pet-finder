@@ -6,15 +6,71 @@ header {
   background-position: center right;
 }
 
+.header-container {
+  @extend .container;
+  padding: 1em;
+
+  @media (min-width: $largish) {
+    background-position: top right;
+    padding: 3em;
+  }
+}
+
+.main-title {
+  @extend .main-title-layout;
+  text-align: center;
+  color: $white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 2px solid white;
+  border-radius: 2px;
+  transition: all 0.2s ease 0s;
+  font-size: 1.3em;
+
+  @media (min-width: $mediumish) {
+    font-size: 1.6em;
+    border: 3px solid $white;
+  }
+
+  @media (min-width: $largish) {
+    font-size: 1.9em;
+  }
+}
+ 
+a.logo { 
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a:hover { background: none; }
+
 body {
   background-color: $white;
   color: $primary-font-color;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
+
 footer {
   display: block;
   background-color: $neutral-color-light;
+}
+.unsubscribe {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.unsubscribe-button {
+  @extend .button;
+  @extend .btn-sm;
+  background-color: lighten($neutral-color-medium, 19);
+
+  &:hover {
+    background-color: $primary-button-color-dark;
+  }
 }
 
 a {
@@ -92,6 +148,65 @@ div {
   }
 }
 
+.call-to-action {
+  color: $primary-color-dark;
+  font-size: 1.1em;
+  @media (min-width: $largish) {
+    font-size: 1.5em;
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+
+.pagination {
+  @extend .col-xs-12;
+  text-align: center;
+  font-size: 1.1em;
+
+  .current {
+    color: darken($primary-color, 22);
+    background-color: $primary-accent-color;
+    padding: .5em;
+    border-radius: 3px;
+  }
+
+  a {
+    text-decoration:none;
+    background-color: darken($primary-color, 11) ;
+    padding: .3em;
+    border-radius: 3px;
+    color: $white;
+
+    &:hover {
+      color: lighten($secondary-color, 7);
+      background-color: darken($primary-color, 22);
+      padding: .3em;
+      padding-top: .4em;
+      padding-bottom: .4em;
+      border-radius: 4px;
+      transition: all 0.2s ease 0s;
+    }
+
+    &:active {
+      color: $primary-accent-color;
+    }
+  }
+}
+
+.notice-box {
+  @extend .notice-layout;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: $white;
+
+  h4 {
+    font-size: 1.4em;
+  }
+}
+
 .beta-span {
   text-align:center;
 
@@ -117,8 +232,4 @@ div {
       }
     }
   }
-}
-
-.centered {
-  text-align: center;
 }

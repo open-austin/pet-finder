@@ -47,15 +47,3 @@
    background-color: $primary-button-color-dark;
  }
 }
-
-.unsubscribe {
-  margin-bottom: 2em;
-  margin-top: 2em;
-  text-align: center;
-}
-
-.unsubscribe-button {
-  @extend .search-button;
-  @extend .btn-sm;
-  background-color: lighten($neutral-color-medium, 19);
-}

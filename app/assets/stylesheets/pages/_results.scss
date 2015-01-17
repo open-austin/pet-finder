@@ -131,38 +131,3 @@
 		}
 	}
 }
-
-.pagination {
-	@extend .col-xs-12;
-	text-align: center;
-	font-size: 1.1em;
-
-	.current {
-		color: darken($primary-color, 22);
-		background-color: $primary-accent-color;
-		padding: .5em;
-		border-radius: 3px;
-	}
-
-	a {
-		text-decoration:none;
-		background-color: darken($primary-color, 11) ;
-		padding: .3em;
-		border-radius: 3px;
-		color: $white;
-
-		&:hover {
-			color: lighten($secondary-color, 7);
-			background-color: darken($primary-color, 22);
-			padding: .3em;
-			padding-top: .4em;
-			padding-bottom: .4em;
-			border-radius: 4px;
-			transition: all 0.2s ease 0s;
-		}
-
-		&:active {
-			color: $primary-accent-color;
-		}
-	}
-}
