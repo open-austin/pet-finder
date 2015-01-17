@@ -2,14 +2,14 @@
 
 <div class="container">
 	<div class="show-single-result">
-		<h3 class="call-to-action centered">Enter your phone or email to stop receiving Pet Alerts </h3>
-		<div class='form-group'>
+		<h3 class="call-to-action centered">Stop receiving Pet Alerts </h3>
+		<div class='form-group centered'>
 			<%= label_tag :email_or_phone  %>
 			<%= text_field_tag :email_or_phone, '', class: 'form-control' %>
 		</div>
 
 		<div class="actions">
-			<%= submit_tag "Submit", class: "submit-button" %>
+			<%= submit_tag "Unsubscribe", class: "submit-button" %>
 		</div>
 
 		<% end %>
