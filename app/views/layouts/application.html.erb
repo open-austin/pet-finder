@@ -65,15 +65,20 @@
 
 
 </div> <!-- /container -->
+
 <footer>
   <div class= "container">
-    <div class= "medium-layout">
+    <div class= "wide-layout">
       <div class= "unsubscribe">
-       <p>Pet Alerts will send you text or email notifications each time a new pet matching your search is listed. You can unsubscribe from these notifications anytime. <div class="unsubscribe-button"><%= link_to 'Unsubscribe', unsubscribe_url %></div></p>
-      </div>
+       <p>Pet Alerts sends you text or email notifications each time a new pet matching your search is listed.</p>
+       <div class="main-title-layout"><div class="unsubscribe-button text-center"><%= link_to 'Unsubscribe', unsubscribe_url %></div>
+     </div>
+   </div>
 
-    <p class = "centered">Pet Alerts, ATX Hack for Change <%= Time.new.year %></p>
+   <div class="medium-layout">
+    <p class = "centered unsubscribe">Pet Alerts, ATX Hack for Change <%= Time.new.year %></p>
   </div>
+</div>
 </div>
 </footer>
 
