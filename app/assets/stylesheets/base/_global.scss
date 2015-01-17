@@ -1,5 +1,6 @@
 header {
-  background-image: (url("puppies4.jpg"));
+  background-image: (url("header-banner.jpg"));
+  background-color: $medium-blue;
   background-size: cover;
   background-repeat:no-repeat;
   background-position: center right;
@@ -16,16 +17,11 @@ footer {
   background-color: $light-gray;
 }
 
-.unsubscribe {
-  margin-bottom: 2em;
-  margin-top: 2em;
-  text-align: center;
-
-  a {
-    color: darken($medium-gray, 37);
-    &:hover {
-      text-decoration: none;
-    }
+a {
+  color: darken($medium-gray, 37);
+  
+  &:hover {
+    text-decoration: none;
   }
 }
 
@@ -59,6 +55,11 @@ div {
 
 #notice {
   color: green;
+}
+
+.alert {
+  text-align: center;
+  font-size: 1.3em;
 }
 
 .field_with_errors {

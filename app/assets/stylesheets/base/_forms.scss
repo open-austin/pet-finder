@@ -9,18 +9,17 @@
   margin-top: .5em;
 }
 
-.alert {
-  text-align: center;
-  font-size: 1.3em;
-}
-
-.search-button {
+.button {
   @extend .btn;
   @extend .btn-lg;
   @extend .btn-block;
+  transition: all 0.2s ease 0s;
+}
+
+.search-button {
+  @extend .button;
   background-color: $yellow;
   color: darken($medium-blue, 33);
-  transition: all 0.2s ease 0s;
 
   &:hover {
     background-color: $dark-yellow;
@@ -33,7 +32,6 @@
 
 .subscription-form {
   @extend .wide-layout;
-
 }
 
 .return-button {
@@ -43,11 +41,17 @@
   margin-bottom: .5em;
   margin-top: .5em;
   transition: all 0.2s ease 0s;
+  border:none;
 
   &:hover {
-    box-shadow: 0px 0px 3px 1px darken($powder-blue, 22);
-    background-color: $powder-blue;
-  }
+   background-color: $dark-yellow;
+ }
+}
+
+.unsubscribe {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  text-align: center;
 }
 
 .unsubscribe-button {

@@ -78,11 +78,10 @@ a:hover { background: none; }
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-}
-
-.dog-icon.active {
-	background-image: (url("/images/dog-active.png"));
-	background-color: $powder-blue;
+	&:active {
+		background-image: (url("/images/dog-active.png"));
+		background-color: $powder-blue;
+	}
 }
 
 .cat-icon {
@@ -90,21 +89,20 @@ a:hover { background: none; }
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
+	&:active {
+		background-image: (url("/images/cat-active.png"));
+		background-color:  $powder-blue;
+	}
 }
 
-.cat-icon.active {
-	background-image: (url("/images/cat-active.png"));
-	background-color:  $powder-blue;
-}
 
 .other-icon {
 	background-image: (url("/images/other.png"));
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-}
-
-.other-icon.active {
-	background-image: (url("/images/other-active.png"));
-	background-color:  $powder-blue;
+	&:active {
+		background-image: (url("/images/other-active.png"));
+		background-color:  $powder-blue;
+	}
 }

@@ -26,6 +26,16 @@
 	@extend .pet-icon;
 }
 
+.notice-layout {
+	@extend .col-xs-12;
+	@extend .col-md-8;
+	@extend .col-md-offset-2;
+	@extend .col-lg-6;
+	@extend .col-lg-offset-3;
+	@extend .pet-icon;
+}
+
+
 .form-input-layout {
 	@extend .col-xs-12;
 	@extend .col-md-6;

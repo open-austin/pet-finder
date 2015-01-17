@@ -1,14 +1,14 @@
 <div class="container">
   <div class = "wide-layout">
     <div class="centered">
-      <div class="show-single-result">
+      <div class="show-layout-box">
         <h3 class="pet-current-location">Currently located at: <br> <a href="<%= @pet.shelter.map_link %>"><span class=" call-to-action glyphicon glyphicon-map-marker"></span><%= @pet.shelter %> (map)</a></h3>
         <p class= "pet-id-number">
           Contact the animal shelter directly for further information on this pet and
           reference pet identifier '<%= @pet.pet_id %>'.
         </p>
 
-        <div class="show-single-result-copy">
+        <div class="show-layout-copy">
           <h4><%= "#{@pet.gender} #{@pet.species}".titleize %></h4>
           <p>Found: <%= @pet.found_on.strftime("%B %d, %Y") %></p>
           <p>Breed guess: <%= @pet.breed %></p>

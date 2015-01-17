@@ -39,22 +39,23 @@
 
 </head>
 
-<header> 
-  <div class="beta-span">
-    <a href="http://goo.gl/forms/Wt7iMAaN8a"><h4>We're in Beta. Help us improve this app! Click here to submit your feedback.</h4></a>
-  </div>
-  <div class= "header-container">
-    <div class="row">
-      <div class="col-xs-12">
-        <a href="<%= root_path %>" class= 'logo'>
-          <h1 class="main-title"> Pet Alerts </h1>
-        </a>
+<body>
+
+  <header> 
+    <div class="beta-span">
+      <a href="http://goo.gl/forms/Wt7iMAaN8a"><h4>We're in Beta. Help us improve this app! Click here to submit your feedback.</h4></a>
+    </div>
+
+    <div class= "header-container">
+      <div class="row">
+        <div class="col-xs-12">
+          <a href="<%= root_path %>" class= 'logo'>
+            <h1 class="main-title"> Pet Alerts </h1>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-
-<body>
+  </header>
 
   <% [ :success, :danger, :info ].each do |msg_type| %>
   <% if flash[msg_type] %>
@@ -64,25 +65,23 @@
 
   <%= yield %>
 
+  <footer>
+    <div class= "container">
+      <div class= "wide-layout">
+        <div class= "unsubscribe">
+         <p>Pet Alerts sends you text or email notifications each time a new pet matching your search is listed.</p>
+         <div class="main-title-layout">
+          <div class="unsubscribe-button text-center"><%= link_to 'Unsubscribe', unsubscribe_url %></div>
+        </div>
+      </div>
 
-</div> <!-- /container -->
-
-<footer>
-  <div class= "container">
-    <div class= "wide-layout">
-      <div class= "unsubscribe">
-       <p>Pet Alerts sends you text or email notifications each time a new pet matching your search is listed.</p>
-       <div class="main-title-layout"><div class="unsubscribe-button text-center"><%= link_to 'Unsubscribe', unsubscribe_url %></div>
-     </div>
-   </div>
-
-   <div class="medium-layout">
-    <p class = "centered unsubscribe">Pet Alerts, ATX Hack for Change <%= Time.new.year %></p>
+      <div class="medium-layout">
+        <p class = "centered unsubscribe">Pet Alerts, ATX Hack for Change <%= Time.new.year %></p>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</footer>
 
+</footer>
 
 </body>
 </html>

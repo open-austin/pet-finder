@@ -1,4 +1,4 @@
-.show-single-result {
+.show-layout-box {
 	@extend .show-layout;
 	margin-top: 1em;
 	margin-bottom: 1em;
@@ -22,21 +22,19 @@
 	padding-bottom: 1em;
 }
 
-.show-single-result-copy {
-	text-align: left;
+.show-layout-copy {
 	@extend .col-xs-10;
+	text-align: left;
 	font-size: .9em;
 	border-left: 9px solid $powder-blue;
 	margin-top: .2em;
 	margin-bottom: .6em;
-	
 }
 
 .pet-id-number-highlight {
 	background-color: $yellow;
 	display: inline;
 	padding-bottom: .5em;
-
 }
 
 .responsive-pet-icon {
