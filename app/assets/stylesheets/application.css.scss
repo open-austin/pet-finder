@@ -10,21 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require lib/bootstrap.min
  *= require jquery.ui.datepicker
- *= require_tree .
  *= require_self
  */
 
- .logo { max-height: 150px; }
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
- a:hover { background: none; }
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/global';
+@import 'base/forms';
 
- .centered {
- 	text-align: center;
- }
+@import 'layouts/layout';
 
- .pet-image {
- 	max-width: 200px;
- 	max-height: 200px;
- }
+@import 'pages/results';
+@import 'pages/main';
+@import 'pages/show';

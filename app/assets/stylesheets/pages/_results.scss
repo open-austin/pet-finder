@@ -1,0 +1,133 @@
+.subscription-form {
+	@extend .wide-layout;
+	@extend .panel-info;
+	border:none;
+	margin-top: 1.5em;
+	border-radius: 2px;
+	background-color: $white;
+	
+	@media (min-width: $mediumish) {
+		box-shadow: 1px 1px 1px 1px $primary-color;
+	}
+
+	p {
+		color: darken($neutral-color-medium, 9);
+	}
+}
+
+.subscription-title {
+	@extend .panel-heading;
+	@extend .panel-title;
+	font-size: 1.4em;
+	text-align: center;
+	background-color: white;
+	@media (min-width: $largish) {
+		font-size: 1.7em;
+	}
+}
+
+.subscription-readonly-input {
+	@extend .form-group;
+	@extend .col-xs-4;
+	font-size: .9em;
+	border: 3px solid $white;
+	border-radius: 4px;
+	background-color: lighten($primary-color, 30);
+	color: darken($neutral-color-medium, 9);
+	margin-top:0em;
+	margin-bottom:0em;
+
+	.form-control {
+		background-color: lighten($primary-color, 30);
+		@extend .input-sm;
+		border: none;
+		box-shadow: none;
+		padding: 0em;
+		font-size: .9em;
+		cursor: default;
+		color: darken($neutral-color-medium, 9);
+	}
+}
+
+.subscription-input {
+	@extend .form-group;
+	@extend .col-xs-12;
+	@extend .col-md-6;
+	padding: 3px;
+
+	.form-control {
+		@extend .form-control;
+		border-color: $secondary-color;
+		box-shadow: 1px 1px 2px 1px $primary-color;
+		border: none;
+		&:active {
+			border:none;
+		}
+
+		&:focus {
+			box-shadow: 1px 1px 2px 1px $primary-accent-color-dark;
+			border: none;
+		}
+
+		&:visited {
+			border:none;
+			box-shadow: 1px 1px 2px 1px $primary-accent-color-dark;
+
+		}
+	}
+}
+
+.search-results-wrapper {
+	@extend .subscription-form;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.result-image {
+	max-width: 200px;
+}
+
+.results-table {
+	@extend .table;
+	@extend .table-responsive;
+	background-color: $white;
+	
+	img {
+		border-radius: 7px;
+
+		&:hover {
+
+		}
+	}	
+}
+
+.result-each {
+	text-align: left;
+
+	a {
+		color: darken($primary-color, 29);
+		
+		&:hover {
+			color: darken($primary-color, 11);
+			text-decoration: none;
+		}
+	}
+	h5 {
+		font-size: 1em;
+		padding-left: .5em;
+
+		@media (min-width: $mediumish) {
+			font-size: 1.3em;
+		}
+	}
+
+	p {
+		font-size: 1em;
+		padding-left: .5em;
+
+		@media (min-width: $mediumish) {
+			font-size: 1.1em;
+
+		}
+	}
+}

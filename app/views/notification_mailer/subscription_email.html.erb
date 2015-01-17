@@ -7,9 +7,7 @@
 
     <h1>Thanks for using PetAlerts</h1>
   
-    <p>
-      To confirm your alert, please <a href="<%= confirm_url confirmation_code: @subscription.confirmation_code, redirect: results_url(subscription: @subscription.as_params) %>">confirm your email address</a>. Or you can <a href="<%= unsubscribe_url email_or_phone: @subscription.email %>">unsubscribe</a>.
-    </p>
+    <p>To confirm your alert, please <a href="<%= confirm_url confirmation_code: @subscription.confirmation_code, redirect: results_url(subscription: @subscription.as_params) %>">confirm your email address</a>. Or you can <a href="<%= unsubscribe_url email_or_phone: @subscription.email %>">unsubscribe</a>.</p>
 
     
     <h2>Your search:</h2>

@@ -1,12 +1,17 @@
 <%= form_tag url: unsubscribe_url do %>
 
-  <div class='form-group'>
-    <%= label_tag :email_or_phone  %>
-    <%= text_field_tag :email_or_phone, '', class: 'form-control' %>
-  </div>
+<div class="container">
+	<div class="notice-box">
+		<h3 class="call-to-action centered">Stop receiving Pet Alerts </h3>
+		<div class='form-group centered'>
+			<%= label_tag :email_or_phone  %>
+			<%= text_field_tag :email_or_phone, '', class: 'form-control' %>
+		</div>
 
-  <div class="actions">
-    <%= submit_tag "Submit", class: "btn btn-success btn-lg btn-block" %>
-  </div>
+		<div class="actions">
+			<%= submit_tag "Unsubscribe", class: "submit-button" %>
+		</div>
 
-<% end %>
+		<% end %>
+	</div>
+</div>

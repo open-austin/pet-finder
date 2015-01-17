@@ -1,0 +1,53 @@
+.wide-layout {
+	@extend .col-xs-12;
+	@extend .col-md-10;
+	@extend .col-md-offset-1;
+	@extend .col-lg-8;
+	@extend .col-lg-offset-2;
+}
+
+.medium-layout {
+	@extend .col-xs-10;
+	@extend .col-xs-offset-1;
+	@extend .col-md-8;
+	@extend .col-md-offset-2;
+	@extend .col-lg-8;
+	@extend .col-lg-offset-2;
+}
+
+.responsive-image-layout {
+	@extend .col-xs-12;
+}
+
+.show-layout {
+	@extend .col-xs-12;
+	@extend .col-md-10;
+	@extend .col-md-offset-1;
+	@extend .pet-icon;
+}
+
+.notice-layout {
+	@extend .col-xs-12;
+	@extend .col-md-8;
+	@extend .col-md-offset-2;
+	@extend .col-lg-6;
+	@extend .col-lg-offset-3;
+	@extend .pet-icon;
+}
+
+
+.form-input-layout {
+	@extend .col-xs-12;
+	@extend .col-md-6;
+}
+
+.form-inline-layout {
+	display: inline;
+}
+
+.main-title-layout {
+	@extend .col-xs-6;
+	@extend .col-xs-offset-3;
+	@extend .col-md-4;
+	@extend .col-md-offset-4;
+}

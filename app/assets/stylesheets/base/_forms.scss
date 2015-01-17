@@ -1,0 +1,49 @@
+.second-form-background {
+  display:block;
+  text-align:center;
+  background-color: $primary-color;
+  margin-top: 2em;
+}
+
+.form-group {
+  margin-top: .5em;
+}
+
+.button {
+  @extend .btn;
+  @extend .btn-lg;
+  @extend .btn-block;
+  transition: all 0.2s ease 0s;
+}
+
+.search-button {
+  @extend .button;
+  background-color: $primary-button-color;
+  color: $primary-font-color;
+
+  &:hover {
+    background-color: $primary-button-color-dark;
+  }
+}
+
+.submit-button {
+  @extend .search-button;
+}
+
+.subscription-form {
+  @extend .wide-layout;
+}
+
+.return-button {
+  @extend .btn;
+  @extend .btn-default;
+  background-color: $secondary-background-button-color;
+  margin-bottom: .5em;
+  margin-top: .5em;
+  transition: all 0.2s ease 0s;
+  border:none;
+
+  &:hover {
+   background-color: $primary-button-color-dark;
+ }
+}

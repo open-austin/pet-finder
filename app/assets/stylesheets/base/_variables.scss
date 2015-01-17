@@ -1,0 +1,62 @@
+// Color Palette 
+
+$white : #fff;
+$light-gray: #DDD;
+$gray : #808080;
+$medium-gray: #999;
+$dark-gray: #222;
+
+$blue: #4dabdf;
+$powder-blue: #d9edf7;
+$medium-blue: #91b1be;
+$dark-blue: #5f838a;
+
+$yellow: #fdd68b;
+$light-yellow: lighten($yellow, 14);
+$dark-yellow: #f5bd6e;
+
+$red: #c00;
+
+// Color Scheme
+
+//primary
+$primary-color: $medium-blue;
+$primary-color-dark: $dark-blue;
+$primary-color-light: lighten(#6a8189, 27);
+
+$secondary-color: $powder-blue;
+
+$primary-accent-color: $yellow;
+$primary-accent-color-dark: $dark-yellow;
+
+$neutral-color-light: $light-gray;
+$neutral-color-medium: $medium-gray;
+
+// Font Colors
+$primary-font-color: darken($medium-blue, 33);
+$secondary-font-color: darken($primary-color, 33);
+$accent-font-color: $secondary-color;
+
+
+// Link Colors
+$primary-link-color: darken($neutral-color-medium, 37);
+$hover-link-color: darken($primary-accent-color, 15);
+$primary-button-color: $primary-accent-color;
+$primary-button-color-dark: $primary-accent-color-dark;
+$secondary-background-button-color: darken($secondary-color, 11);
+
+// Border color
+$base-border-color: $light-gray;
+
+// Typography
+$sans-serif: Helvetica;
+$serif: Times;
+$base-font-family: $sans-serif;
+$header-font-family: $base-font-family;
+
+// Media Breakpoints
+
+$smallish : 24em;
+$mediumish: 46.8em;
+$largish: 50em;
+$extra-largish : 67em;

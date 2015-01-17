@@ -1,0 +1,44 @@
+.show-layout-box {
+	@extend .show-layout;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color:  $white;
+
+	h4 {
+		font-size: 1.4em;
+	}
+}
+
+.pet-id-number {
+	color: $primary-font-color;
+	background-color: $primary-accent-color;
+	padding: .5em;
+	border-radius: 3px;
+	font-size: 1em;
+}
+
+.pet-current-location {
+	@extend .call-to-action;
+	padding-bottom: 1em;
+}
+
+.show-layout-copy {
+	@extend .col-xs-10;
+	text-align: left;
+	font-size: .9em;
+	border-left: 9px solid $secondary-color;
+	margin-top: .2em;
+	margin-bottom: .6em;
+}
+
+.pet-id-number-highlight {
+	background-color: $primary-accent-color;
+	display: inline;
+	padding-bottom: .5em;
+}
+
+.responsive-pet-icon {
+	@extend .responsive-image-layout;
+	@extend .pet-icon;
+	padding: 0em;
+}
