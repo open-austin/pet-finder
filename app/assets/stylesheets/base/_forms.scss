@@ -53,4 +53,6 @@
 .unsubscribe-button {
   @extend .search-button;
   @extend .btn-sm;
+  background-color: $medium-gray;
+  display: inline-block;
 }
