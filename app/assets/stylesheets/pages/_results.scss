@@ -5,10 +5,16 @@
 	margin-top: 1.5em;
 	border-radius: 2px;
 	background-color: $white;
+	
 	@media (min-width: $mediumish) {
 		box-shadow: 1px 1px 1px 1px $medium-blue;
 	}
+
+	p {
+		color: darken($medium-gray, 9);
+	}
 }
+
 .subscription-title {
 	@extend .panel-heading;
 	@extend .panel-title;
@@ -26,16 +32,20 @@
 	font-size: .9em;
 	border: 3px solid $white;
 	border-radius: 4px;
-	background-color: lighten($medium-blue, 29);
+	background-color: lighten($medium-blue, 30);
+	color: darken($medium-gray, 9);
+	margin-top:0em;
+	margin-bottom:0em;
 
 	.form-control {
-		background-color: lighten($medium-blue, 29);
+		background-color: lighten($medium-blue, 30);
 		@extend .input-sm;
 		border: none;
 		box-shadow: none;
 		padding: 0em;
 		font-size: .9em;
 		cursor: default;
+		color: darken($medium-gray, 9);
 	}
 }
 
@@ -47,18 +57,15 @@
 
 	.form-control {
 		@extend .form-control;
-		background-color: lighten($medium-blue, 29);
 		border-color: $powder-blue;
 		box-shadow: 1px 1px 2px 1px $medium-blue;
 		border: none;
 		&:active {
-			background-color: $yellow;
 			border:none;
 		}
 
 		&:focus {
 			box-shadow: 1px 1px 2px 1px $dark-yellow;
-			background-color: lighten($powder-blue, 7);
 			border: none;
 		}
 
