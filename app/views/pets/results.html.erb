@@ -41,6 +41,7 @@
 	<div class= "container">
 		<div class="search-results-wrapper">
 			<h2 class="call-to-action centered">Search Results</h2>
+
 			<%= will_paginate @pets %>
 			<table class="results-table">
 				<% @pets.each do |pet| %>
@@ -59,14 +60,12 @@
 						<% unless pet.found_on.nil? %>
 						<p>Found <%= pluralize(pet.found_days_ago, 'day') %> ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
 						<% end %>
-						<p></p>
 					</td> 
 				</tr>
 				<% end %>
 			</table>
 			<%= will_paginate @pets %>
+
 		</div>
 	</div>
-</div>
-
 </div>

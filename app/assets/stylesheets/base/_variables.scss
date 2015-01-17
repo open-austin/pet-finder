@@ -19,7 +19,7 @@ $red: #c00;
 
 // Color Scheme
 
-$primary-font-color: darken($medium-blue, 33);
+//primary
 $primary-color: $medium-blue;
 $primary-color-dark: $dark-blue;
 $primary-color-light: lighten(#6a8189, 27);
@@ -33,7 +33,8 @@ $neutral-color-light: $light-gray;
 $neutral-color-medium: $medium-gray;
 
 // Font Colors
-$primary-font-color: darken($primary-color, 33);
+$primary-font-color: darken($medium-blue, 33);
+$secondary-font-color: darken($primary-color, 33);
 $accent-font-color: $secondary-color;
 
 

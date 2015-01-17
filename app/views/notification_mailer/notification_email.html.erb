@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
 
-    <h1>Is this your pet?</h1>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
 
+<body>
+  <h1>Is this your pet?</h1>
+
+  <%= link_to show_url(@pet) do %>
+  <img src="<%= @pet.image %>"/>
+  <% unless @pet.has_image? %>
+  
+  <p> Because this image is not yet available, we will send you a follow-up email when it becomes available. </p>
+ 
+  <% end %>
+  <% end %>
+
+  <h4>
     <%= link_to show_url(@pet) do %>
-      <img src="<%= @pet.image %>"/>
-      <% unless @pet.has_image? %>
-        <p>
-          Because this image is not yet available, we will send you a follow-up email when it becomes available.
-        </p>
-      <% end %>
+    <%= "#{@pet.gender} #{@pet.species}".titleize %>
     <% end %>
-    
-    <h4>
-      <%= link_to show_url(@pet) do %>
-        <%= "#{@pet.gender} #{@pet.species}".titleize %>
-      <% end %>
-    </h4>
+  </h4>
 
-    <p>Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a></p>
+  <p>Currently located at: <a href="<%= @pet.shelter.map_link %>"><%= @pet.shelter %></a></p>
 
-    <ul>
-      <li>Breed guess: <%= @pet.breed %></li>
-      <li>Color: <%= @pet.color %></li>
-      <li>Found: <%= @pet.found_on %></li>
-    </ul>
+  <ul>
+    <li>Breed guess: <%= @pet.breed %></li>
+    <li>Color: <%= @pet.color %></li>
+    <li>Found: <%= @pet.found_on %></li>
+  </ul>
 
-    <p>We'll keep looking.</p> 
-    <p>The PetAlerts Team</p> 
+  <p>We'll keep looking.</p> 
+  <p>The PetAlerts Team</p> 
 
-    <p>To unsubscribe, <a href="<%= unsubscribe_url email_or_phone: @subscription.email %>">click here.</a></p>
-    
-  </body>
+  <p>To unsubscribe, <a href="<%= unsubscribe_url email_or_phone: @subscription.email %>">click here.</a></p>
+
+</body>
 </html>
