@@ -1,7 +1,7 @@
 .second-form-background {
   display:block;
   text-align:center;
-  background-color: $medium-blue;
+  background-color: $primary-color;
   margin-top: 2em;
 }
 
@@ -18,11 +18,11 @@
 
 .search-button {
   @extend .button;
-  background-color: $yellow;
-  color: darken($medium-blue, 33);
+  background-color: $primary-button-color;
+  color: $primary-font-color;
 
   &:hover {
-    background-color: $dark-yellow;
+    background-color: $primary-button-color-dark;
   }
 }
 
@@ -37,14 +37,14 @@
 .return-button {
   @extend .btn;
   @extend .btn-default;
-  background-color: darken($powder-blue, 11);
+  background-color: $secondary-background-button-color;
   margin-bottom: .5em;
   margin-top: .5em;
   transition: all 0.2s ease 0s;
   border:none;
 
   &:hover {
-   background-color: $dark-yellow;
+   background-color: $primary-button-color-dark;
  }
 }
 
@@ -57,5 +57,5 @@
 .unsubscribe-button {
   @extend .search-button;
   @extend .btn-sm;
-  background-color: lighten($medium-gray, 19);
+  background-color: lighten($neutral-color-medium, 19);
 }

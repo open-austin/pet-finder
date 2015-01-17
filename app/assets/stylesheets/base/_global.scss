@@ -1,6 +1,6 @@
 header {
   background-image: (url("header-banner.jpg"));
-  background-color: $medium-blue;
+  background-color: $primary-color;
   background-size: cover;
   background-repeat:no-repeat;
   background-position: center right;
@@ -8,17 +8,17 @@ header {
 
 body {
   background-color: $white;
-  color: darken($medium-blue, 33);
+  color: $primary-font-color;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
 footer {
   display: block;
-  background-color: $light-gray;
+  background-color: $neutral-color-light;
 }
 
 a {
-  color: darken($medium-gray, 37);
+  color: $primary-link-color;
   
   &:hover {
     text-decoration: none;
@@ -38,12 +38,12 @@ pre {
 }
 
 a {
-  color: #000;
+  color: $primary-link-color;
   &:visited {
     color: #666;
   }
   &:hover {
-    background-color: #000;
+    background-color: $primary-link-color;
   }
 }
 
@@ -75,6 +75,7 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  
   h2 {
     text-align: left;
     font-weight: bold;
@@ -82,8 +83,8 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+    background-color: $red;
+    color: $white;
   }
   ul li {
     font-size: 12px;
@@ -98,20 +99,21 @@ div {
     text-decoration: none;
 
     h4{
-      margin-top:0;
+      color: darken($primary-font-color, 7);
+      background-color: $primary-accent-color;
+      margin-top: 0;
       padding: .5em;
-      background-color: #fdd68b;
-      border-radius: 2px;
-      color: #333;
-      font-size: 1em;
       transition: all 0.2s ease 0s;
+      border-radius: 2px;
+      font-size: 1em;
+
       @media (min-width: $largish) {
         font-size: 1.2em;
       }
 
       &:hover { 
-        color: #222;
-        background-color: $dark-yellow;
+        color: $dark-gray;
+        background-color: $primary-accent-color-dark;
       }
     }
   }

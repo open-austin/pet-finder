@@ -7,11 +7,11 @@
 	background-color: $white;
 	
 	@media (min-width: $mediumish) {
-		box-shadow: 1px 1px 1px 1px $medium-blue;
+		box-shadow: 1px 1px 1px 1px $primary-color;
 	}
 
 	p {
-		color: darken($medium-gray, 9);
+		color: darken($neutral-color-medium, 9);
 	}
 }
 
@@ -32,20 +32,20 @@
 	font-size: .9em;
 	border: 3px solid $white;
 	border-radius: 4px;
-	background-color: lighten($medium-blue, 30);
-	color: darken($medium-gray, 9);
+	background-color: lighten($primary-color, 30);
+	color: darken($neutral-color-medium, 9);
 	margin-top:0em;
 	margin-bottom:0em;
 
 	.form-control {
-		background-color: lighten($medium-blue, 30);
+		background-color: lighten($primary-color, 30);
 		@extend .input-sm;
 		border: none;
 		box-shadow: none;
 		padding: 0em;
 		font-size: .9em;
 		cursor: default;
-		color: darken($medium-gray, 9);
+		color: darken($neutral-color-medium, 9);
 	}
 }
 
@@ -57,21 +57,21 @@
 
 	.form-control {
 		@extend .form-control;
-		border-color: $powder-blue;
-		box-shadow: 1px 1px 2px 1px $medium-blue;
+		border-color: $secondary-color;
+		box-shadow: 1px 1px 2px 1px $primary-color;
 		border: none;
 		&:active {
 			border:none;
 		}
 
 		&:focus {
-			box-shadow: 1px 1px 2px 1px $dark-yellow;
+			box-shadow: 1px 1px 2px 1px $primary-accent-color-dark;
 			border: none;
 		}
 
 		&:visited {
 			border:none;
-			box-shadow: 1px 1px 2px 1px $dark-yellow;
+			box-shadow: 1px 1px 2px 1px $primary-accent-color-dark;
 
 		}
 	}
@@ -105,10 +105,10 @@
 	text-align: left;
 
 	a {
-		color: darken($medium-blue, 29);
+		color: darken($primary-color, 29);
 
 		&:hover {
-			color: darken($medium-blue, 11);
+			color: darken($primary-color, 11);
 			text-decoration: none;
 		}
 	}
@@ -138,22 +138,22 @@
 	font-size: 1.1em;
 
 	.current {
-		color: darken($medium-blue, 22);
-		background-color: $yellow;
+		color: darken($primary-color, 22);
+		background-color: $primary-accent-color;
 		padding: .5em;
 		border-radius: 3px;
 	}
 
 	a {
 		text-decoration:none;
-		background-color: darken($medium-blue, 11) ;
+		background-color: darken($primary-color, 11) ;
 		padding: .3em;
 		border-radius: 3px;
 		color: $white;
 
 		&:hover {
-			color: lighten($powder-blue, 7);
-			background-color: darken($medium-blue, 22);
+			color: lighten($secondary-color, 7);
+			background-color: darken($primary-color, 22);
 			padding: .3em;
 			padding-top: .4em;
 			padding-bottom: .4em;
@@ -162,7 +162,7 @@
 		}
 
 		&:active {
-			color: $yellow;
+			color: $primary-accent-color;
 		}
 	}
 }

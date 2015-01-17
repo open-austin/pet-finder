@@ -21,7 +21,7 @@
 
 	@media (min-width: $mediumish) {
 		font-size: 1.6em;
-		border: 3px solid white;
+		border: 3px solid $white;
 	}
 
 	@media (min-width: $largish) {
@@ -43,7 +43,7 @@ a.logo {
 a:hover { background: none; }
 
 .call-to-action {
-	color: $dark-blue;
+	color: $primary-color-dark;
 	font-size: 1.1em;
 	@media (min-width: $largish) {
 		font-size: 1.5em;
@@ -58,18 +58,18 @@ a:hover { background: none; }
 .pet-icon {
 	min-height: 120px;
 	margin-bottom: 1em;
-	box-shadow: 1px 1px 2px 1px darken($medium-blue, 17);
+	box-shadow: 1px 1px 2px 1px darken($primary-color, 17);
 	border-radius: 3px;
 
 	@media (min-width: $largish) {
 		min-height: 200px;
-		background-color: lighten($medium-blue, 29);
+		background-color: lighten($primary-color, 29);
 		border: 1.5em solid white;
 	}
 
 	&:hover {
 		cursor: pointer;
-		box-shadow: 1px 1px 4px 1px darken($medium-blue, 27);
+		box-shadow: 1px 1px 4px 1px darken($primary-color, 27);
 	}
 }
 
@@ -80,7 +80,7 @@ a:hover { background: none; }
 	background-position: center center;
 	&:active {
 		background-image: (url("/images/dog-active.png"));
-		background-color: $powder-blue;
+		background-color: $secondary-color;
 	}
 }
 
@@ -91,7 +91,7 @@ a:hover { background: none; }
 	background-position: center center;
 	&:active {
 		background-image: (url("/images/cat-active.png"));
-		background-color:  $powder-blue;
+		background-color: $secondary-color;
 	}
 }
 
@@ -103,6 +103,6 @@ a:hover { background: none; }
 	background-position: center center;
 	&:active {
 		background-image: (url("/images/other-active.png"));
-		background-color:  $powder-blue;
+		background-color: $secondary-color;
 	}
 }
