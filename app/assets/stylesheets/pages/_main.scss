@@ -26,7 +26,8 @@
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-	&:active {
+	
+	&.active {
 		background-image: (url("/images/dog-active.png"));
 		background-color: $secondary-color;
 	}
@@ -37,7 +38,8 @@
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-	&:active {
+	
+	&.active {
 		background-image: (url("/images/cat-active.png"));
 		background-color: $secondary-color;
 	}
@@ -49,7 +51,8 @@
 	background-size: contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-	&:active {
+	
+	&.active {
 		background-image: (url("/images/other-active.png"));
 		background-color: $secondary-color;
 	}
