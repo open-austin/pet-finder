@@ -16,7 +16,6 @@
 	}
 
 	&:hover {
-		cursor: pointer;
 		box-shadow: 1px 1px 4px 1px darken($primary-color, 27);
 	}
 }
@@ -31,6 +30,9 @@
 		background-image: (url("/images/dog-active.png"));
 		background-color: $secondary-color;
 	}
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .cat-icon {
@@ -42,6 +44,9 @@
 	&.active {
 		background-image: (url("/images/cat-active.png"));
 		background-color: $secondary-color;
+	}
+	&:hover {
+		cursor: pointer;
 	}
 }
 
@@ -55,5 +60,8 @@
 	&.active {
 		background-image: (url("/images/other-active.png"));
 		background-color: $secondary-color;
+	}
+	&:hover {
+		cursor: pointer;
 	}
 }
