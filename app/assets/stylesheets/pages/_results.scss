@@ -1,14 +1,9 @@
 .subscription-form {
 	@extend .wide-layout;
 	@extend .panel-info;
-	border:none;
 	margin-top: 1.5em;
-	border-radius: 2px;
 	background-color: $white;
-	
-	@media (min-width: $mediumish) {
-		box-shadow: 1px 1px 1px 1px $primary-color;
-	}
+	@extend %box-shadow-radius;
 
 	p {
 		color: darken($neutral-color-medium, 9);
