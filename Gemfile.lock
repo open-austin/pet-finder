@@ -215,3 +215,6 @@ DEPENDENCIES
   vcr
   webmock
   will_paginate (~> 3.0.5)
+
+BUNDLED WITH
+   1.10.4

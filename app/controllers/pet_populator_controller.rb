@@ -5,9 +5,9 @@ class PetPopulatorController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def update
-  	pets_params.select {|pet_hash| Pet.where(pet_id: pet_hash[:pet_id]).empty?}.each do |pet_hash| 
+  	pets_params.select {|pet_hash| Pet.where(pet_id: pet_hash[:pet_id]).empty?}.each do |pet_hash|
       pet_hash[:image] = ImageRepository.store pet_hash.delete(:image), pet_hash[:pet_id]
-      
+
       pet = Pet.from_hash(pet_hash)
       pet.save
       Notifier.perform_async(pet.id)
@@ -17,11 +17,15 @@ class PetPopulatorController < ApplicationController
 
   def reconcile
   	pets_to_remove = Pet.where.not(pet_id: id_params)
-  	pets_to_remove.each do |pet| 
+  	pets_to_remove.each do |pet|
   		pet.mark_inactive!
   		pet.save
   	end
   	render nothing: true
+  end
+
+  def all_external_ids
+  	render json: Pet.active.map(&:pet_id)
   end
 
   def pets_without_images

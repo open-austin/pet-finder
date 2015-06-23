@@ -33,7 +33,7 @@
 		<%= f.submit "Submit", class: "submit-button" %>
 
 		<p class= "centered">Cancel an alert any time by <%= link_to 'clicking here', unsubscribe_url %>.</p>
-		<% end %> 
+		<% end %>
 	</div>
 </div>
 
@@ -59,9 +59,9 @@
 							<% end %>
 						</h5>
 						<% unless pet.found_on.nil? %>
-						<p>Found <%= pluralize(pet.found_days_ago, 'day') %> ago (<%= pet.found_on.strftime("%b %-d") %>)</p>
+						<p>Found <%= pluralize(pet.found_days_ago, 'day') %> ago (<%= pet.found_on.strftime("%b %-d %y") %>)</p>
 						<% end %>
-					</td> 
+					</td>
 				</tr>
 				<% end %>
 			</table>
