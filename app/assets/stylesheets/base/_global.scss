@@ -17,19 +17,21 @@ header {
 }
 
 .main-title {
-  @extend .main-title-layout;
   text-align: center;
   color: $white;
   padding-top: 1em;
   padding-bottom: 1em;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 2px;
   transition: all 0.2s ease 0s;
   font-size: 1.3em;
+  display: block; 
+  margin: auto;
+  width: 27%;
 
   @media (min-width: $mediumish) {
     font-size: 1.6em;
-    border: 3px solid $white;
+    border: 2px solid $white;
   }
 
   @media (min-width: $largish) {
@@ -42,6 +44,14 @@ a.logo {
   &:hover {
     text-decoration: none;
   }
+}
+
+.main-title-caption {
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 a:hover { background: none; }

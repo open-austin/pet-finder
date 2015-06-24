@@ -1,8 +1,19 @@
-.second-form-background {
+.search-form {
   display:block;
-  text-align:center;
   background-color: $primary-color;
-  margin-top: 2em;
+  margin-top: 1.5em;
+  
+  .has-feedback {
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  .male-female-select {
+    display: inline-block;
+    label {
+        width: 110px;
+    }
+  }
 }
 
 .form-group {
@@ -20,6 +31,7 @@
   @extend .button;
   background-color: $primary-button-color;
   color: $primary-font-color;
+  margin-top: 20px;
 
   &:hover {
     background-color: $primary-button-color-dark;
