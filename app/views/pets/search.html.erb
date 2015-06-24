@@ -1,7 +1,8 @@
+ <h2 class="main-title-caption"><div class="call-to-action-circle">1</div>Search Austin Animal Shelters for your pet</h2>
+
 <%= form_for @subscription, url: { action: 'results' }, html: { method: 'get', id: 'temp_new_subscription' } do |f| %>
 <div class= "container">
   <div class="wide-layout centered">
-    <h2 class="call-to-action">Search Austin Animal Shelters for:</h2>
     <div class="row">
 
       <div class="col-xs-4">
@@ -20,20 +21,19 @@
   </div>
 </div>
 
-<div class= "second-form-background">
+<div class= "search-form">
   <div class= "container">
-    <div class="row">
-      <div class="collapse medium-layout" id="hidden-form">
-        <%= f.hidden_field 'species' %>
 
-        <div class='form-group has-feedback'>
-          <%= f.label :found_since, 'Select Date and Gender (optional)' %>
-          <%= f.text_field :found_since, class: 'form-control', placeholder: 'When did you lose your pet?' %>
+      <div class="collapse" id="hidden-form">
+        <%= f.hidden_field 'species' %>
+          <div class="call-to-action-circle">2</div>
+          <%= f.label :found_since, '(Optional) Select Date and Gender' %>
+        <div class='has-feedback'>
+          <%= f.text_field :found_since, class: 'form-control ', placeholder: 'Date Lost' %>
           <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
         </div>
 
-        <div class="form-group">
-          <div class="btn-group btn-group-justified" data-toggle="buttons">
+          <div class="btn-group male-female-search" data-toggle="buttons">
             <label class="btn btn-default">
               <input type="radio" name="subscription[gender]" value="male"> Male
             </label>
@@ -41,14 +41,12 @@
               <input type="radio" name="subscription[gender]" value="female"> Female
             </label>
           </div>
-        </div>
 
         <div class="actions">
           <%= f.submit "Search", disabled: true, class: "search-button" %>
         </div>
 
       </div>
-    </div>
   </div>
 </div>
 

@@ -1,8 +1,30 @@
-.second-form-background {
+.search-form {
   display:block;
-  text-align:center;
   background-color: $primary-color;
-  margin-top: 2em;
+  margin-top: 1.5em;
+  text-align: center;
+  
+  .has-feedback {
+    display: inline-block;
+
+    input {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    i {
+      top: 10px;
+    }
+  }
+
+  .male-female-search {
+    display: inline-block;
+    .btn-default {
+      background-color: white;
+      border-color: $medium-blue;
+      width: 90px;
+    }
+  }
 }
 
 .form-group {
@@ -16,10 +38,19 @@
   transition: all 0.2s ease 0s;
 }
 
-.search-button {
+input[type="submit"].search-button {
   @extend .button;
+  width: 66%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   background-color: $primary-button-color;
   color: $primary-font-color;
+  margin-top: 20px;
+
+ @media (min-width: $largish) {
+     width: 33%;
+  }
 
   &:hover {
     background-color: $primary-button-color-dark;
