@@ -89,6 +89,10 @@
 
 .result-image {
 	max-width: 200px;
+
+	@media (min-width: $largish) {
+		max-width: 500px;
+	}
 }
 
 .results-table {
@@ -98,10 +102,11 @@
 	
 	img {
 		border-radius: 7px;
-
-		&:hover {
-
+			@media (min-width: $largish) {
+		max-width: 400px;
+		max-height: 400px;
 		}
+
 	}	
 }
 

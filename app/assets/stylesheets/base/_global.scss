@@ -4,15 +4,18 @@ header {
   background-size: cover;
   background-repeat:no-repeat;
   background-position: center right;
+  padding-bottom: 3em;
 }
 
 .header-container {
   @extend .container;
-  padding: 1em;
+  padding-bottom: 1.5em;
+  padding-top: 1em;
 
   @media (min-width: $largish) {
     background-position: top right;
-    padding: 3em;
+    padding-bottom: 3em;
+    padding-top: 1.9em;
   }
 }
 
@@ -60,9 +63,10 @@ a.logo {
 .main-title-caption {
   display: block;
   color: white;
+  margin-top: -60px;
   text-align: center;
   font-size: 1.2em;
-  margin-bottom: 30px;
+  margin-bottom: 65px;
 }
 
 a:hover { background: none; }
