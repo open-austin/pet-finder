@@ -16,6 +16,17 @@ header {
   }
 }
 
+.call-to-action-circle {
+    padding: 12px 10px;
+    display: inline;
+    background-color: $primary-accent-color;
+    border-radius: 100%;
+    color: $primary-font-color;
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
 .main-title {
   text-align: center;
   color: $white;
@@ -179,23 +190,21 @@ div {
   .current {
     color: darken($primary-color, 22);
     background-color: $primary-accent-color;
-    padding: .5em;
+    padding: 8px 11px;
     border-radius: 3px;
   }
 
   a {
     text-decoration:none;
     background-color: darken($primary-color, 11) ;
-    padding: .3em;
+    padding: 8px 11px;
     border-radius: 3px;
     color: $white;
 
     &:hover {
       color: lighten($secondary-color, 7);
       background-color: darken($primary-color, 22);
-      padding: .3em;
-      padding-top: .4em;
-      padding-bottom: .4em;
+      padding: 9px 11px;
       border-radius: 4px;
       transition: all 0.2s ease 0s;
     }

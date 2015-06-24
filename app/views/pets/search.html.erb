@@ -24,9 +24,9 @@
 
       <div class="collapse" id="hidden-form">
         <%= f.hidden_field 'species' %>
-
+          <div class="call-to-action-circle">2</div>
+          <%= f.label :found_since, '(Optional) Select Date and Gender' %>
         <div class='has-feedback'>
-          <%= f.label :found_since, 'Select Date and Gender (optional)' %>
           <%= f.text_field :found_since, class: 'form-control ', placeholder: 'Date Lost' %>
           <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
         </div>

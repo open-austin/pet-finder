@@ -8,15 +8,15 @@
 		<%= form_for @subscription, url: subscribe_url, html: { method: 'post' } do |f| %>
 
 		<div class='subscription-readonly-input'>
-			<%= f.label 'species', 'species:' %>
+			<%= f.label 'species', 'Type:' %>
 			<%= f.text_field 'species', class: 'form-control', readonly: true, placeholder: 'view all' %>
 		</div>
 		<div class='subscription-readonly-input'>
-			<%= f.label 'gender', 'gender:' %>
+			<%= f.label 'gender', 'Gender:' %>
 			<%= f.text_field 'gender', class: 'form-control', readonly: true, placeholder: 'view all' %>
 		</div>
 		<div class='subscription-readonly-input'>
-			<%= f.label 'found', 'found:' %>
+			<%= f.label 'found', 'Found:' %>
 			<%# subscription doesn't need this value as it only applies to future posts%>
 			<%= f.text_field 'found_since', class: 'form-control', readonly: true, disabled: true, placeholder: 'view all' %>
 		</div>

@@ -8,6 +8,7 @@
 	
 	@media (min-width: $mediumish) {
 		box-shadow: 1px 1px 1px 1px $primary-color;
+		margin-top: -45px;
 	}
 
 	p {
@@ -36,6 +37,9 @@
 	color: darken($neutral-color-medium, 9);
 	margin-top:0em;
 	margin-bottom:0em;
+	input {
+		cursor: disabled;
+	}
 
 	.form-control {
 		background-color: lighten($primary-color, 30);
