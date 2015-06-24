@@ -12,7 +12,7 @@
 .button {
   @extend .btn;
   @extend .btn-lg;
-  @extend .btn-block;
+  @extend .btn-block; 
   transition: all 0.2s ease 0s;
 }
 
@@ -28,10 +28,6 @@
 
 .submit-button {
   @extend .search-button;
-}
-
-.subscription-form {
-  @extend .wide-layout;
 }
 
 .return-button {
