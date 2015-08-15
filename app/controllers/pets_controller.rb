@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  
+
   def search
     @subscription = Subscription.new
   end
@@ -13,7 +13,7 @@ class PetsController < ApplicationController
   end
 
   def show
-    @back_url = request.referrer if request.referrer.include? 'results'
+    @back_url = request.referrer if request.referrer.present? && request.referrer.include?('results')
     @pet = Pet.find(params[:id])
   end
 
