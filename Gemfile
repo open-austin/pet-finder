@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.0'
+gem 'rails', '~> 4.2.7.1'
 gem 'sqlite3', group: [ :development, :test ]
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1.3'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -30,4 +30,4 @@ gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'vcr', group: :test
 gem 'webmock', group: :test
 
-ruby '2.1.3'
+ruby '2.3.3'
